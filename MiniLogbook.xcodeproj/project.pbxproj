@@ -13,24 +13,21 @@
 		2CF3C9782B80CC81007B080F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3C9762B80CC81007B080F /* Main.storyboard */; };
 		2CF3C97A2B80CC82007B080F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3C9792B80CC82007B080F /* Assets.xcassets */; };
 		2CF3C97D2B80CC82007B080F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3C97B2B80CC82007B080F /* LaunchScreen.storyboard */; };
-		2CF3C9882B80CC83007B080F /* MiniLogbookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9872B80CC83007B080F /* MiniLogbookTests.swift */; };
-		2CF3C9922B80CC83007B080F /* MiniLogbookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9912B80CC83007B080F /* MiniLogbookUITests.swift */; };
-		2CF3C9942B80CC83007B080F /* MiniLogbookUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9932B80CC83007B080F /* MiniLogbookUITestsLaunchTests.swift */; };
 		2CF9FA3A2B80E47F000AA3EB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FA392B80E47F000AA3EB /* MainView.swift */; };
+		2CF9FA3D2B80EB7B000AA3EB /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FA3C2B80EB7B000AA3EB /* View.swift */; };
+		2CF9FA412B80F136000AA3EB /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FA402B80F136000AA3EB /* SelectionView.swift */; };
+		2CF9FA472B80F2D3000AA3EB /* SelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FA462B80F2D3000AA3EB /* SelectionViewModel.swift */; };
+		2CF9FA4B2B80F371000AA3EB /* ST_SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FA4A2B80F371000AA3EB /* ST_SelectionView.swift */; };
+		2CF9FA4E2B811D98000AA3EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF3C9792B80CC82007B080F /* Assets.xcassets */; };
+		2CF9FA502B811F1A000AA3EB /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FA4F2B811F1A000AA3EB /* Spacing.swift */; };
+		2CF9FA522B81204D000AA3EB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FA512B81204D000AA3EB /* MainViewModel.swift */; };
+		2CF9FA562B812126000AA3EB /* ST_MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9FA552B812126000AA3EB /* ST_MainView.swift */; };
 		33ACFC50FDF70D28E1FCEA10 /* Pods_MiniLogbook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98AAD56C087B29E4122F491 /* Pods_MiniLogbook.framework */; };
 		724D47A62519FF4ED4CB5C26 /* Pods_MiniLogbookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D3CDCF33C6D07ECA353AB0 /* Pods_MiniLogbookTests.framework */; };
-		F74B002728B8C02F156DD122 /* Pods_MiniLogbook_MiniLogbookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 611185C6BCED032C73C40C42 /* Pods_MiniLogbook_MiniLogbookUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2CF3C9842B80CC83007B080F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2CF3C9652B80CC80007B080F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2CF3C96C2B80CC81007B080F;
-			remoteInfo = MiniLogbook;
-		};
-		2CF3C98E2B80CC83007B080F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2CF3C9652B80CC80007B080F /* Project object */;
 			proxyType = 1;
@@ -50,11 +47,14 @@
 		2CF3C97C2B80CC82007B080F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CF3C97E2B80CC82007B080F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CF3C9832B80CC83007B080F /* MiniLogbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniLogbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CF3C9872B80CC83007B080F /* MiniLogbookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniLogbookTests.swift; sourceTree = "<group>"; };
-		2CF3C98D2B80CC83007B080F /* MiniLogbookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniLogbookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CF3C9912B80CC83007B080F /* MiniLogbookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniLogbookUITests.swift; sourceTree = "<group>"; };
-		2CF3C9932B80CC83007B080F /* MiniLogbookUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniLogbookUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2CF9FA392B80E47F000AA3EB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2CF9FA3C2B80EB7B000AA3EB /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		2CF9FA402B80F136000AA3EB /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		2CF9FA462B80F2D3000AA3EB /* SelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewModel.swift; sourceTree = "<group>"; };
+		2CF9FA4A2B80F371000AA3EB /* ST_SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_SelectionView.swift; sourceTree = "<group>"; };
+		2CF9FA4F2B811F1A000AA3EB /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		2CF9FA512B81204D000AA3EB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		2CF9FA552B812126000AA3EB /* ST_MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_MainView.swift; sourceTree = "<group>"; };
 		472F367504D88D0019A9BCB4 /* Pods-MiniLogbookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniLogbookTests.release.xcconfig"; path = "Target Support Files/Pods-MiniLogbookTests/Pods-MiniLogbookTests.release.xcconfig"; sourceTree = "<group>"; };
 		5C0F5E12E979DD52CD9C5523 /* Pods-MiniLogbook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniLogbook.release.xcconfig"; path = "Target Support Files/Pods-MiniLogbook/Pods-MiniLogbook.release.xcconfig"; sourceTree = "<group>"; };
 		611185C6BCED032C73C40C42 /* Pods_MiniLogbook_MiniLogbookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniLogbook_MiniLogbookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,14 +82,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2CF3C98A2B80CC83007B080F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F74B002728B8C02F156DD122 /* Pods_MiniLogbook_MiniLogbookUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -98,7 +90,6 @@
 			children = (
 				2CF3C96F2B80CC81007B080F /* MiniLogbook */,
 				2CF3C9862B80CC83007B080F /* MiniLogbookTests */,
-				2CF3C9902B80CC83007B080F /* MiniLogbookUITests */,
 				2CF3C96E2B80CC81007B080F /* Products */,
 				DBCFC946B868E91008A3CBD1 /* Pods */,
 				E2B5DC64AADDE37E9AAA71B0 /* Frameworks */,
@@ -110,7 +101,6 @@
 			children = (
 				2CF3C96D2B80CC81007B080F /* MiniLogbook.app */,
 				2CF3C9832B80CC83007B080F /* MiniLogbookTests.xctest */,
-				2CF3C98D2B80CC83007B080F /* MiniLogbookUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,18 +121,9 @@
 		2CF3C9862B80CC83007B080F /* MiniLogbookTests */ = {
 			isa = PBXGroup;
 			children = (
-				2CF3C9872B80CC83007B080F /* MiniLogbookTests.swift */,
+				2CF9FA482B80F33A000AA3EB /* Main */,
 			);
 			path = MiniLogbookTests;
-			sourceTree = "<group>";
-		};
-		2CF3C9902B80CC83007B080F /* MiniLogbookUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2CF3C9912B80CC83007B080F /* MiniLogbookUITests.swift */,
-				2CF3C9932B80CC83007B080F /* MiniLogbookUITestsLaunchTests.swift */,
-			);
-			path = MiniLogbookUITests;
 			sourceTree = "<group>";
 		};
 		2CF9FA382B80E434000AA3EB /* Main */ = {
@@ -150,6 +131,8 @@
 			children = (
 				2CF3C9742B80CC81007B080F /* MainViewController.swift */,
 				2CF9FA392B80E47F000AA3EB /* MainView.swift */,
+				2CF9FA512B81204D000AA3EB /* MainViewModel.swift */,
+				2CF9FA3F2B80F10C000AA3EB /* Subiews */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -159,8 +142,44 @@
 			children = (
 				2CF3C9702B80CC81007B080F /* AppDelegate.swift */,
 				2CF3C9722B80CC81007B080F /* SceneDelegate.swift */,
+				2CF9FA3E2B80F0A0000AA3EB /* UI */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		2CF9FA3E2B80F0A0000AA3EB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9FA3C2B80EB7B000AA3EB /* View.swift */,
+				2CF9FA4F2B811F1A000AA3EB /* Spacing.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2CF9FA3F2B80F10C000AA3EB /* Subiews */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9FA402B80F136000AA3EB /* SelectionView.swift */,
+				2CF9FA462B80F2D3000AA3EB /* SelectionViewModel.swift */,
+			);
+			path = Subiews;
+			sourceTree = "<group>";
+		};
+		2CF9FA482B80F33A000AA3EB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9FA492B80F340000AA3EB /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2CF9FA492B80F340000AA3EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9FA552B812126000AA3EB /* ST_MainView.swift */,
+				2CF9FA4A2B80F371000AA3EB /* ST_SelectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DBCFC946B868E91008A3CBD1 /* Pods */ = {
@@ -228,26 +247,6 @@
 			productReference = 2CF3C9832B80CC83007B080F /* MiniLogbookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2CF3C98C2B80CC83007B080F /* MiniLogbookUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2CF3C99D2B80CC83007B080F /* Build configuration list for PBXNativeTarget "MiniLogbookUITests" */;
-			buildPhases = (
-				96825076A43C103CBB60209E /* [CP] Check Pods Manifest.lock */,
-				2CF3C9892B80CC83007B080F /* Sources */,
-				2CF3C98A2B80CC83007B080F /* Frameworks */,
-				2CF3C98B2B80CC83007B080F /* Resources */,
-				4C49B228E6A27354575B516E /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2CF3C98F2B80CC83007B080F /* PBXTargetDependency */,
-			);
-			name = MiniLogbookUITests;
-			productName = MiniLogbookUITests;
-			productReference = 2CF3C98D2B80CC83007B080F /* MiniLogbookUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -263,10 +262,7 @@
 					};
 					2CF3C9822B80CC83007B080F = {
 						CreatedOnToolsVersion = 15.2;
-						TestTargetID = 2CF3C96C2B80CC81007B080F;
-					};
-					2CF3C98C2B80CC83007B080F = {
-						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 						TestTargetID = 2CF3C96C2B80CC81007B080F;
 					};
 				};
@@ -286,7 +282,6 @@
 			targets = (
 				2CF3C96C2B80CC81007B080F /* MiniLogbook */,
 				2CF3C9822B80CC83007B080F /* MiniLogbookTests */,
-				2CF3C98C2B80CC83007B080F /* MiniLogbookUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -306,36 +301,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CF3C98B2B80CC83007B080F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				2CF9FA4E2B811D98000AA3EB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C49B228E6A27354575B516E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiniLogbook-MiniLogbookUITests/Pods-MiniLogbook-MiniLogbookUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiniLogbook-MiniLogbookUITests/Pods-MiniLogbook-MiniLogbookUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiniLogbook-MiniLogbookUITests/Pods-MiniLogbook-MiniLogbookUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7EA8B31638321290BDC0CFCC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,28 +324,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MiniLogbookTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96825076A43C103CBB60209E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MiniLogbook-MiniLogbookUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -444,9 +394,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF3C9752B80CC81007B080F /* MainViewController.swift in Sources */,
+				2CF9FA412B80F136000AA3EB /* SelectionView.swift in Sources */,
+				2CF9FA472B80F2D3000AA3EB /* SelectionViewModel.swift in Sources */,
 				2CF9FA3A2B80E47F000AA3EB /* MainView.swift in Sources */,
+				2CF9FA3D2B80EB7B000AA3EB /* View.swift in Sources */,
 				2CF3C9712B80CC81007B080F /* AppDelegate.swift in Sources */,
+				2CF9FA502B811F1A000AA3EB /* Spacing.swift in Sources */,
 				2CF3C9732B80CC81007B080F /* SceneDelegate.swift in Sources */,
+				2CF9FA522B81204D000AA3EB /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,16 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CF3C9882B80CC83007B080F /* MiniLogbookTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CF3C9892B80CC83007B080F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CF3C9922B80CC83007B080F /* MiniLogbookUITests.swift in Sources */,
-				2CF3C9942B80CC83007B080F /* MiniLogbookUITestsLaunchTests.swift in Sources */,
+				2CF9FA562B812126000AA3EB /* ST_MainView.swift in Sources */,
+				2CF9FA4B2B80F371000AA3EB /* ST_SelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,11 +421,6 @@
 			isa = PBXTargetDependency;
 			target = 2CF3C96C2B80CC81007B080F /* MiniLogbook */;
 			targetProxy = 2CF3C9842B80CC83007B080F /* PBXContainerItemProxy */;
-		};
-		2CF3C98F2B80CC83007B080F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2CF3C96C2B80CC81007B080F /* MiniLogbook */;
-			targetProxy = 2CF3C98E2B80CC83007B080F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -695,6 +637,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -704,6 +647,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = norolim.MiniLogbookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniLogbook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MiniLogbook";
@@ -716,6 +660,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -728,46 +673,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniLogbook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MiniLogbook";
-			};
-			name = Release;
-		};
-		2CF3C99E2B80CC83007B080F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E72E1A1BA627B08D22931A34 /* Pods-MiniLogbook-MiniLogbookUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = norolim.MiniLogbookUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MiniLogbook;
-			};
-			name = Debug;
-		};
-		2CF3C99F2B80CC83007B080F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DB015266FAC65FA2FB44471 /* Pods-MiniLogbook-MiniLogbookUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = norolim.MiniLogbookUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MiniLogbook;
 			};
 			name = Release;
 		};
@@ -797,15 +702,6 @@
 			buildConfigurations = (
 				2CF3C99B2B80CC83007B080F /* Debug */,
 				2CF3C99C2B80CC83007B080F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2CF3C99D2B80CC83007B080F /* Build configuration list for PBXNativeTarget "MiniLogbookUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2CF3C99E2B80CC83007B080F /* Debug */,
-				2CF3C99F2B80CC83007B080F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
