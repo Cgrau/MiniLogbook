@@ -1,46 +1,48 @@
+import Combine
 import UIKit
 
 class MainViewController: UIViewController {
-   private enum Constants {
-      static let result = "Your average is 122 mg/dL"
-      static let description = "Add measurement:"
-      enum Options {
-         static let mgDLTitle = "mg/dL"
-         static let mmolLTitle = "mg/dL"
-         static let selectedImage = UIImage(named: "selected")!
-         static let unselectedImage = UIImage(named: "unselected")!
-         static let viewModels: [SelectionViewModel] = [
-            .init(image: Constants.Options.selectedImage,
-                  text: Constants.Options.mgDLTitle),
-            .init(image: Constants.Options.unselectedImage,
-                  text: Constants.Options.mmolLTitle)
-         ]
-      }
-      static let buttonTitle = "Save"
-   }
    private let mainView = MainView()
+   private var cancellables: Set<AnyCancellable> = []
+   var viewModel = MainViewModel.empty()
    
    override func loadView() {
+      mainView.delegate = self
       view = mainView
    }
    
    override func viewDidLoad() {
-      // Do this in the mapper
-      mainView.apply(viewModel: .init(
-         result: Constants.result,
-         description: Constants.description,
-         options: Constants.Options.viewModels.map {
-            let view = SelectionView()
-            view.apply(viewModel: $0)
-            return view
-         },
-         textFieldText: "",
-         textFieldTitle: Constants.Options.mgDLTitle,
-         buttonTitle: Constants.buttonTitle)
-      )
+      super.viewDidLoad()
+      bindViewModel()
+   }
+   
+   private func bindViewModel() {
+      viewModel.$state
+         .sink { [weak self] state in
+            self?.handleState(state)
+         }
+         .store(in: &cancellables)
+      viewModel.loadUserData()
+   }
+   
+   private func handleState(_ state: MainViewState) {
+      switch state {
+      case .loading:
+         print("Loading...") // we could add a loader, but since we are not getting requesting remote data it doesn't make sense
+      case .loaded(let mainViewModel):
+         mainView.apply(viewModel: mainViewModel)
+      case .error(let errorMessage):
+         print("Error: \(errorMessage)") // we could add an error message, but since our use cases cannot fail, we won't display any error
+      }
    }
    
    override func viewWillAppear(_ animated: Bool) {
       navigationController?.navigationBar.isHidden = true
+   }
+}
+
+extension MainViewController: MainViewDelegate {
+   func didTapSaveButton() {
+      viewModel.save(value: viewModel.textFieldText)
    }
 }

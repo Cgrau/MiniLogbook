@@ -4,9 +4,6 @@ platform :ios, '15.0'
 target 'MiniLogbook' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'SwiftLint', '0.54.0'
-  pod 'RxSwift', '5.1.3'
-  pod 'RxCocoa', '5.1.3'
   pod 'SnapKit', '5.6.0'
 
   # Pods for MiniLogbook
@@ -15,10 +12,6 @@ target 'MiniLogbook' do
     inherit! :search_paths
     use_frameworks!
     pod 'SnapshotTesting', '1.9.0'
-  end
-
-  target 'MiniLogbookUITests' do
-    # Pods for testing
   end
 
 end

@@ -1,15 +1,13 @@
 import UIKit
 import SnapKit
-import RxSwift
-import RxCocoa
 
 protocol MainViewDelegate: AnyObject {
+   func didTapSaveButton()
 }
 
 final class MainView: View {
    weak var delegate: MainViewDelegate?
    var tableView = UITableView()
-   private var bag = DisposeBag()
    
    private enum Constants {
       static let undelineHeight = 2
@@ -29,6 +27,7 @@ final class MainView: View {
       label.textColor = .black
       label.textAlignment = .center
       label.font = Constants.Result.font
+      label.translatesAutoresizingMaskIntoConstraints = false
       return label
    }()
    
@@ -107,12 +106,13 @@ final class MainView: View {
       textFieldTitle.setContentHuggingPriority(.defaultHigh, for: .horizontal)
       textFieldTitle.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
       addSubview(saveButton)
+      saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
    }
    
    override func setupConstraints() {
       resultLabel.snp.makeConstraints { make in
          make.top.equalTo(safeAreaLayoutGuide).offset(Spacing.l)
-         make.centerX.equalToSuperview()
+         make.horizontalEdges.equalToSuperview().offset(Spacing.l)
       }
       underline.snp.makeConstraints { make in
          make.top.equalTo(resultLabel.snp.bottom).offset(Spacing.s)
@@ -138,9 +138,13 @@ final class MainView: View {
       saveButton.snp.makeConstraints { make in
          make.top.equalTo(textFieldStackView.snp.bottom).offset(Spacing.l)
          make.trailing.equalTo(measurementOptions)
-         make.leading.equalTo(measurementOptions).offset(200)
+         make.leading.equalTo(measurementOptions.snp.trailing).offset(-200)
          make.height.equalTo(Constants.Button.height)
       }
+   }
+   
+   @objc func saveButtonTapped() {
+      delegate?.didTapSaveButton()
    }
 }
 
