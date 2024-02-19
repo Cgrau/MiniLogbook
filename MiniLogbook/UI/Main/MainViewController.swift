@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
    static func buildDefault() -> Self {
       .init(viewModel: MainViewModel.buildDefault())
    }
-
+   
    override func loadView() {
       mainView.delegate = self
       view = mainView
@@ -29,24 +29,25 @@ class MainViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-       bundToViewModel()
+      bundToViewModel()
    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        onAppearPublisher.send(())
-    }
-    func bundToViewModel() {
-        cancellables.removeAll()
-        let input = MainViewModelInput(onAppear: onAppearPublisher.eraseToAnyPublisher(),
-                                       onOptionTapped: (onOptionTappedPublisher.eraseToAnyPublisher()),
-                                       onSaveTapped: saveButtonTapsPublisher.eraseToAnyPublisher())
-        
-        let output = viewModel.transform(input: input)
-        output.sink { [weak self] state in
-            self?.handleState(state)
-        }.store(in: &cancellables)
-    }
-    
+   
+   override func viewDidAppear(_ animated: Bool) {
+      onAppearPublisher.send(())
+   }
+   
+   func bundToViewModel() {
+      cancellables.removeAll()
+      let input = MainViewModelInput(onAppear: onAppearPublisher.eraseToAnyPublisher(),
+                                     onOptionTapped: (onOptionTappedPublisher.eraseToAnyPublisher()),
+                                     onSaveTapped: saveButtonTapsPublisher.eraseToAnyPublisher())
+      
+      let output = viewModel.transform(input: input)
+      output.sink { [weak self] state in
+         self?.handleState(state)
+      }.store(in: &cancellables)
+   }
+   
    
    private func handleState(_ state: MainViewState) {
       switch state {
@@ -68,6 +69,7 @@ extension MainViewController: MainViewDelegate {
    func didTapOption(with text: String) {
       onOptionTappedPublisher.send(text)
    }
+   
    func didTapSaveButton(with text: String?) {
       saveButtonTapsPublisher.send(text)
    }

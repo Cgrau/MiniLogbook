@@ -21,10 +21,11 @@ final class GetAverageValue {
    func execute(selectedType: SelectedType) -> Double {
       let values = repository.retrieveValues()
       guard values.count != 0 else { return 0 }
-      let average = values.compactMap { Double($0) }.reduce(0, +) / Double(values.count)
+      let average = values.compactMap { Double($0.replacingOccurrences(of: ",", with: ".")) }.reduce(0, +) / Double(values.count)
       switch selectedType {
       case .mgDL:
-         return average.rounded()
+         guard let value = Double(String(format: "%.2f", average)) else { return average.rounded() }
+         return value
       case .mmolL:
          return average / Constants.conversionRate
       }

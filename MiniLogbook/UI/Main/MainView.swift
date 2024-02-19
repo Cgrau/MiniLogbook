@@ -6,7 +6,7 @@ protocol MainViewDelegate: AnyObject {
    func didTapOption(with text: String)
 }
 
-final class MainView: View, SelectionViewDelegate {
+final class MainView: View {
    weak var delegate: MainViewDelegate?
    
    private enum Constants {
@@ -16,6 +16,9 @@ final class MainView: View, SelectionViewDelegate {
       }
       enum TitleLabel {
          static let font = UIFont.boldSystemFont(ofSize: 20)
+      }
+      enum ErrorLabel {
+         static let font = UIFont.boldSystemFont(ofSize: 16)
       }
       enum Button {
          static let height: CGFloat = 33
@@ -70,10 +73,18 @@ final class MainView: View, SelectionViewDelegate {
       textField.font = Constants.Result.font
       textField.textColor = .gray
       textField.tintColor = .gray
-      textField.keyboardType = .numberPad
+      textField.keyboardType = .decimalPad
       textField.borderStyle = .roundedRect
       textField.borderRect(forBounds: .init(x: .zero, y: .zero, width: 5, height: 5))
       return textField
+   }()
+   
+   private var errorLabel: UILabel = {
+      let label = UILabel()
+      label.textColor = .red
+      label.textAlignment = .left
+      label.font = Constants.ErrorLabel.font
+      return label
    }()
    
    private var textFieldTitle: UILabel = {
@@ -103,6 +114,7 @@ final class MainView: View, SelectionViewDelegate {
       addSubview(textFieldStackView)
       textFieldStackView.addArrangedSubview(textField)
       textFieldStackView.addArrangedSubview(textFieldTitle)
+      addSubview(errorLabel)
       textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
       textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
       textFieldTitle.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -138,8 +150,13 @@ final class MainView: View, SelectionViewDelegate {
          make.leading.equalTo(measurementOptionsStackView)
          make.trailing.equalTo(measurementOptionsStackView)
       }
+      errorLabel.snp.makeConstraints { make in
+         make.top.equalTo(textFieldStackView.snp.bottom)
+         make.leading.equalTo(measurementOptionsStackView)
+         make.trailing.equalTo(measurementOptionsStackView)
+      }
       saveButton.snp.makeConstraints { make in
-         make.top.equalTo(textFieldStackView.snp.bottom).offset(Spacing.l)
+         make.top.equalTo(errorLabel.snp.bottom).offset(Spacing.l)
          make.trailing.equalTo(measurementOptionsStackView)
          make.leading.equalTo(measurementOptionsStackView.snp.trailing).offset(-200)
          make.height.equalTo(Constants.Button.height)
@@ -165,9 +182,12 @@ extension MainView {
       }
       textField.text = viewModel.textFieldText
       textFieldTitle.text = viewModel.textFieldTitle
+      errorLabel.text = viewModel.errorText
       saveButton.setTitle(viewModel.buttonTitle, for: .normal)
    }
-   
+}
+
+extension MainView: SelectionViewDelegate {
    func didTapButton(with title: String) {
       delegate?.didTapOption(with: title)
    }

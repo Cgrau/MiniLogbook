@@ -43,6 +43,7 @@ final class GetLaunchData {
          textFieldText: "",
          textFieldTitle: Constants.Options.mgDLTitle,
          buttonTitle: Constants.buttonTitle,
+         errorText: nil,
          selectedType: .mgDL
       )
    }

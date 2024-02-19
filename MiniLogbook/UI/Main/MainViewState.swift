@@ -1,7 +1,7 @@
 enum MainViewState: Equatable {
-    case loading
-    case loaded(ScreenViewModel)
-    case error(String)
+   case loading
+   case loaded(ScreenViewModel)
+   case error(String)
 }
 
 struct ScreenViewModel: Equatable {
@@ -11,5 +11,6 @@ struct ScreenViewModel: Equatable {
    var textFieldText: String
    var textFieldTitle: String
    let buttonTitle: String
+   var errorText: String?
    var selectedType: SelectedType
 }

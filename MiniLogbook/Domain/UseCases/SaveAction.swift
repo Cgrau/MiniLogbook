@@ -24,7 +24,12 @@ final class SaveAction {
    
    func execute(text: String, viewModel: ScreenViewModel) -> ScreenViewModel {
       var expectedViewModel = viewModel
+      guard Double(text.replacingOccurrences(of: ",", with: ".")) ?? 0 > 0 else {
+         expectedViewModel.errorText = "Number should be greater than 0"
+         return expectedViewModel
+      }
       self.saveValue(text, viewModel.selectedType)
+      expectedViewModel.errorText = nil
       let average = self.getAverageValue(viewModel.selectedType)
       expectedViewModel.textFieldText = ""
       expectedViewModel.result = String(format: Constants.result, String(average), viewModel.textFieldTitle)
