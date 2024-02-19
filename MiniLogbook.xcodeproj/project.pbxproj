@@ -11,6 +11,9 @@
 		2C94B8B32B8352830029DFD3 /* SaveValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8B22B8352830029DFD3 /* SaveValue.swift */; };
 		2C94B8BA2B8376E00029DFD3 /* UserDefaultsLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8B92B8376E00029DFD3 /* UserDefaultsLocalStorage.swift */; };
 		2C94B8BC2B83785B0029DFD3 /* GetAverageValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8BB2B83785B0029DFD3 /* GetAverageValue.swift */; };
+		2C94B8C02B83E0EB0029DFD3 /* GetLaunchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8BF2B83E0EB0029DFD3 /* GetLaunchData.swift */; };
+		2C94B8C22B83E24F0029DFD3 /* SelectedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8C12B83E24F0029DFD3 /* SelectedAction.swift */; };
+		2C94B8C42B83E3A90029DFD3 /* SaveAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8C32B83E3A90029DFD3 /* SaveAction.swift */; };
 		2CF3C9712B80CC81007B080F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9702B80CC81007B080F /* AppDelegate.swift */; };
 		2CF3C9732B80CC81007B080F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9722B80CC81007B080F /* SceneDelegate.swift */; };
 		2CF3C9752B80CC81007B080F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9742B80CC81007B080F /* MainViewController.swift */; };
@@ -46,6 +49,9 @@
 		2C94B8B22B8352830029DFD3 /* SaveValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveValue.swift; sourceTree = "<group>"; };
 		2C94B8B92B8376E00029DFD3 /* UserDefaultsLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLocalStorage.swift; sourceTree = "<group>"; };
 		2C94B8BB2B83785B0029DFD3 /* GetAverageValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAverageValue.swift; sourceTree = "<group>"; };
+		2C94B8BF2B83E0EB0029DFD3 /* GetLaunchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLaunchData.swift; sourceTree = "<group>"; };
+		2C94B8C12B83E24F0029DFD3 /* SelectedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAction.swift; sourceTree = "<group>"; };
+		2C94B8C32B83E3A90029DFD3 /* SaveAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAction.swift; sourceTree = "<group>"; };
 		2CF3C96D2B80CC81007B080F /* MiniLogbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniLogbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF3C9702B80CC81007B080F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF3C9722B80CC81007B080F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +107,26 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		2C94B8C52B83E6590029DFD3 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2C94B8C62B83E65E0029DFD3 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2C94B8C62B83E65E0029DFD3 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2C94B8B22B8352830029DFD3 /* SaveValue.swift */,
+				2C94B8BB2B83785B0029DFD3 /* GetAverageValue.swift */,
+				2C94B8BF2B83E0EB0029DFD3 /* GetLaunchData.swift */,
+				2C94B8C12B83E24F0029DFD3 /* SelectedAction.swift */,
+				2C94B8C32B83E3A90029DFD3 /* SaveAction.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		2CF3C9642B80CC80007B080F = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +153,7 @@
 				2CF9FA3B2B80E490000AA3EB /* Core */,
 				2CF9FA382B80E434000AA3EB /* Main */,
 				2C94B8B52B83762C0029DFD3 /* Data */,
+				2C94B8C52B83E6590029DFD3 /* Domain */,
 				2CF3C9762B80CC81007B080F /* Main.storyboard */,
 				2CF3C9792B80CC82007B080F /* Assets.xcassets */,
 				2CF3C97B2B80CC82007B080F /* LaunchScreen.storyboard */,
@@ -151,8 +178,6 @@
 				2CF9FA512B81204D000AA3EB /* MainViewModel.swift */,
 				2C94B8A62B8177F50029DFD3 /* MainViewState.swift */,
 				2CF9FA3F2B80F10C000AA3EB /* Subiews */,
-				2C94B8B22B8352830029DFD3 /* SaveValue.swift */,
-				2C94B8BB2B83785B0029DFD3 /* GetAverageValue.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -417,8 +442,11 @@
 				2C94B8A72B8177F50029DFD3 /* MainViewState.swift in Sources */,
 				2CF9FA412B80F136000AA3EB /* SelectionView.swift in Sources */,
 				2C94B8BA2B8376E00029DFD3 /* UserDefaultsLocalStorage.swift in Sources */,
+				2C94B8C22B83E24F0029DFD3 /* SelectedAction.swift in Sources */,
+				2C94B8C02B83E0EB0029DFD3 /* GetLaunchData.swift in Sources */,
 				2CF9FA472B80F2D3000AA3EB /* SelectionViewModel.swift in Sources */,
 				2CF9FA3A2B80E47F000AA3EB /* MainView.swift in Sources */,
+				2C94B8C42B83E3A90029DFD3 /* SaveAction.swift in Sources */,
 				2CF9FA3D2B80EB7B000AA3EB /* View.swift in Sources */,
 				2C94B8B32B8352830029DFD3 /* SaveValue.swift in Sources */,
 				2CF3C9712B80CC81007B080F /* AppDelegate.swift in Sources */,

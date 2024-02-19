@@ -20,86 +20,49 @@ protocol MainViewModelable: AnyObject {
 }
 
 public class MainViewModel: ObservableObject, MainViewModelable {
-   private enum Constants {
-      static let result = "Your average is %@ %@"
-      static let description = "Add measurement:"
-      
-      enum Options {
-         static let conversionRate: Double = 18.0182
-         static let mgDLTitle = SelectedType.mgDL.rawValue
-         static let mmolLTitle = SelectedType.mmolL.rawValue
-         static let selectedImage = UIImage(named: "selected")!
-         static let unselectedImage = UIImage(named: "unselected")!
-         static let viewModels: [SelectionViewModel] = [
-            .init(image: Constants.Options.selectedImage,
-                  type: .mgDL),
-            .init(image: Constants.Options.unselectedImage,
-                  type: .mmolL)
-         ]
-      }
-      static let buttonTitle = "Save"
-   }
-   
    @Published private(set) var state: MainViewState = .loading
    
    private var cancellableBag = Set<AnyCancellable>()
    private var currentOptions = [String]()
-   private var saveValue: SaveValue.UseCase
-   private var getAverageValue: GetAverageValue.UseCase
+   private let getLaunchData: GetLaunchData.UseCase
+   private let selectedAction: SelectedAction.UseCase
+   private let saveAction: SaveAction.UseCase
    
-   required init(saveValue: @escaping SaveValue.UseCase,
-                 getAverageValue: @escaping GetAverageValue.UseCase) {
-      self.saveValue = saveValue
-      self.getAverageValue = getAverageValue
+   required init(getLaunchData: @escaping GetLaunchData.UseCase,
+                 selectedAction: @escaping SelectedAction.UseCase,
+                 saveAction: @escaping SaveAction.UseCase) {
+      self.getLaunchData = getLaunchData
+      self.selectedAction = selectedAction
+      self.saveAction = saveAction
    }
    
    static func buildDefault() -> Self {
-      .init(saveValue: SaveValue.buildDefault().execute,
-            getAverageValue: GetAverageValue.buildDefault().execute)
+      .init(getLaunchData: GetLaunchData.buildDefault().execute,
+            selectedAction: SelectedAction.buildDefault().execute,
+            saveAction: SaveAction.buildDefault().execute)
    }
    
    func transform(input: MainViewModelInput) -> MainViewModelOutput {
       cancellableBag.removeAll()
       
       // MARK: - on View Appear
-      let onAppearAction = input.onAppear
-         .map { [weak self] result -> MainViewState in
-            guard let self else { return .error("this should not happen") }
-            let selectedOption = Constants.Options.viewModels.first?.type.rawValue ?? ""
-            return .loaded(.init(
-               result: String(format: Constants.result, String(format: "%.2f", self.getAverageValue(.mgDL)), selectedOption),
-               description: Constants.description,
-               options: Constants.Options.viewModels,
-               textFieldText: "",
-               textFieldTitle: Constants.Options.mgDLTitle,
-               buttonTitle: Constants.buttonTitle,
-               selectedType: .mgDL)
-            )
-         }.eraseToAnyPublisher()
+      let onAppearAction = input.onAppear.map { [weak self] result -> MainViewState in
+         guard let self else { return .error("this should not happen") }
+         let initialData = getLaunchData()
+         return .loaded(initialData)
+      }.eraseToAnyPublisher()
       
       // MARK: - on Option Selected Action
       let selectedAction = input.onOptionTapped.map { [weak self] (text) -> MainViewState in
          guard let self = self, case .loaded(var viewModel) = self.state else { return .loading }
-         viewModel.options = viewModel.options.map {
-            if $0.type.rawValue == text {
-               viewModel.selectedType = $0.type
-               return .init(image: .selected, type: $0.type)
-            } else {
-               return .init(image: .unselected, type: $0.type)
-            }
-         }
-         viewModel.textFieldTitle = text
-         viewModel.result = String(format: Constants.result, String(format: "%.2f", self.getAverageValue(viewModel.selectedType)), text)
+         viewModel = self.selectedAction(text, viewModel)
          return .loaded(viewModel)
       }.eraseToAnyPublisher()
       
       // MARK: - on Save Action
       let saveAction = input.onSaveTapped.map { [weak self] (text) -> MainViewState in
          guard let self, let text, case .loaded(var viewModel) = self.state else { return .loading }
-         self.saveValue(text, viewModel.selectedType)
-         let average = self.getAverageValue(viewModel.selectedType)
-         viewModel.textFieldText = ""
-         viewModel.result = String(format: Constants.result, String(average), viewModel.textFieldTitle)
+         viewModel = self.saveAction(text, viewModel)
          return .loaded(viewModel)
       }.eraseToAnyPublisher()
       
