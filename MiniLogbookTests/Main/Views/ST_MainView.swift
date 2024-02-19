@@ -25,23 +25,22 @@ class ST_MainView: XCTestCase {
             description: Constants.description,
             options: Constants.Options.viewModels,
             textFieldText: "",
-            textFieldTitle: Constants.Options.mgDLTitle, 
-            buttonTitle: Constants.buttonTitle)
+            textFieldTitle: SelectedType.mgDL.rawValue,
+            buttonTitle: Constants.buttonTitle,
+            selectedType: .mgDL)
    }
    
    private enum Constants {
       static let result = "Your average is 122 mg/dL"
       static let description = "Add measurement:"
       enum Options {
-         static let mgDLTitle = "mg/dL"
-         static let mmolLTitle = "mg/dL"
          static let selectedImage = UIImage(named: "selected")!
          static let unselectedImage = UIImage(named: "unselected")!
          static let viewModels: [SelectionViewModel] = [
             .init(image: Constants.Options.selectedImage,
-                  text: Constants.Options.mgDLTitle),
+                  type: .mgDL),
             .init(image: Constants.Options.unselectedImage,
-                  text: Constants.Options.mmolLTitle)
+                  type: .mmolL)
          ]
       }
       static let buttonTitle = "Save"

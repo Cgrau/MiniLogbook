@@ -57,6 +57,6 @@ final class SelectionView: View {
 extension SelectionView {
    func apply(viewModel: SelectionViewModel) {
       button.setImage(viewModel.image, for: .normal)
-      titleLabel.text = viewModel.text
+      titleLabel.text = viewModel.type.rawValue
    }
 }

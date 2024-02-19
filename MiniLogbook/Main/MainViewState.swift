@@ -11,4 +11,5 @@ struct ScreenViewModel: Equatable {
    var textFieldText: String
    var textFieldTitle: String
    let buttonTitle: String
+   var selectedType: SelectedType
 }

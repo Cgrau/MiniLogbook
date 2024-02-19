@@ -26,15 +26,15 @@ public class MainViewModel: ObservableObject, MainViewModelable {
       
       enum Options {
          static let conversionRate: Double = 18.0182
-         static let mgDLTitle = "mg/dL"
-         static let mmolLTitle = "mmol/L"
+         static let mgDLTitle = SelectedType.mgDL.rawValue
+         static let mmolLTitle = SelectedType.mmolL.rawValue
          static let selectedImage = UIImage(named: "selected")!
          static let unselectedImage = UIImage(named: "unselected")!
          static let viewModels: [SelectionViewModel] = [
             .init(image: Constants.Options.selectedImage,
-                  text: Constants.Options.mgDLTitle),
+                  type: .mgDL),
             .init(image: Constants.Options.unselectedImage,
-                  text: Constants.Options.mmolLTitle)
+                  type: .mmolL)
          ]
       }
       static let buttonTitle = "Save"
@@ -65,14 +65,15 @@ public class MainViewModel: ObservableObject, MainViewModelable {
       let onAppearAction = input.onAppear
          .map { [weak self] result -> MainViewState in
             guard let self else { return .error("this should not happen") }
-            let selectedOption = Constants.Options.viewModels.first?.text ?? ""
+            let selectedOption = Constants.Options.viewModels.first?.type.rawValue ?? ""
             return .loaded(.init(
-               result: String(format: Constants.result, String(self.getAverageValue()), selectedOption),
+               result: String(format: Constants.result, String(format: "%.2f", self.getAverageValue(.mgDL)), selectedOption),
                description: Constants.description,
                options: Constants.Options.viewModels,
                textFieldText: "",
                textFieldTitle: Constants.Options.mgDLTitle,
-               buttonTitle: Constants.buttonTitle)
+               buttonTitle: Constants.buttonTitle,
+               selectedType: .mgDL)
             )
          }.eraseToAnyPublisher()
       
@@ -80,22 +81,23 @@ public class MainViewModel: ObservableObject, MainViewModelable {
       let selectedAction = input.onOptionTapped.map { [weak self] (text) -> MainViewState in
          guard let self = self, case .loaded(var viewModel) = self.state else { return .loading }
          viewModel.options = viewModel.options.map {
-            if $0.text == text {
-               return .init(image: .selected, text: text)
+            if $0.type.rawValue == text {
+               viewModel.selectedType = $0.type
+               return .init(image: .selected, type: $0.type)
             } else {
-               return .init(image: .unselected, text: $0.text)
+               return .init(image: .unselected, type: $0.type)
             }
          }
          viewModel.textFieldTitle = text
-         viewModel.result = String(format: Constants.result, String(self.getAverageValue()), text)
+         viewModel.result = String(format: Constants.result, String(format: "%.2f", self.getAverageValue(viewModel.selectedType)), text)
          return .loaded(viewModel)
       }.eraseToAnyPublisher()
       
       // MARK: - on Save Action
       let saveAction = input.onSaveTapped.map { [weak self] (text) -> MainViewState in
          guard let self, let text, case .loaded(var viewModel) = self.state else { return .loading }
-         self.saveValue(text)
-         let average = self.getAverageValue()
+         self.saveValue(text, viewModel.selectedType)
+         let average = self.getAverageValue(viewModel.selectedType)
          viewModel.textFieldText = ""
          viewModel.result = String(format: Constants.result, String(average), viewModel.textFieldTitle)
          return .loaded(viewModel)
