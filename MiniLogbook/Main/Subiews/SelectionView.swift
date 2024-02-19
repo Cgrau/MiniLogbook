@@ -1,7 +1,7 @@
 import UIKit
 
 protocol SelectionViewDelegate: AnyObject {
-   func didTapButton()
+   func didTapButton(with title: String)
 }
 
 final class SelectionView: View {
@@ -49,7 +49,8 @@ final class SelectionView: View {
    }
    
    @objc func buttonTapped() {
-      delegate?.didTapButton()
+      guard let text = titleLabel.text else { return }
+      delegate?.didTapButton(with: text)
    }
 }
 

@@ -20,22 +20,13 @@ class ST_MainView: XCTestCase {
       sut = nil
    }
    
-   private func givenSelectedState() -> MainViewModel {
+   private func givenSelectedState() -> ScreenViewModel {
       .init(result: Constants.result,
             description: Constants.description,
-            options: givenOptions(), 
-            textFieldText: "", 
+            options: Constants.Options.viewModels,
+            textFieldText: "",
             textFieldTitle: Constants.Options.mgDLTitle, 
             buttonTitle: Constants.buttonTitle)
-   }
-   
-   private func givenOptions() -> [View] {
-      let views = Constants.Options.viewModels.map {
-         let view = SelectionView()
-         view.apply(viewModel: $0)
-         return view
-      }
-      return views
    }
    
    private enum Constants {

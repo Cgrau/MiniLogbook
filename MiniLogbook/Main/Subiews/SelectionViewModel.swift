@@ -1,6 +1,6 @@
 import UIKit
 
-struct SelectionViewModel {
+struct SelectionViewModel: Equatable {
    let image: UIImage
    let text: String
 }

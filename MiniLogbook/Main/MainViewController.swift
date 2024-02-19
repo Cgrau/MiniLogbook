@@ -4,8 +4,24 @@ import UIKit
 class MainViewController: UIViewController {
    private let mainView = MainView()
    private var cancellables: Set<AnyCancellable> = []
-   var viewModel = MainViewModel.empty()
+   private var viewModel: MainViewModelable
+   private var onAppearPublisher = PassthroughSubject<Void, Never>()
+   private var onOptionTappedPublisher = PassthroughSubject<String, Never>()
+   private var saveButtonTapsPublisher = PassthroughSubject<(String?), Never>()
    
+   required init(viewModel: MainViewModelable) {
+      self.viewModel = viewModel
+      super.init(nibName: nil, bundle: nil)
+   }
+   
+   required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+   
+   static func buildDefault() -> Self {
+      .init(viewModel: MainViewModel.buildDefault())
+   }
+
    override func loadView() {
       mainView.delegate = self
       view = mainView
@@ -13,17 +29,24 @@ class MainViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      bindViewModel()
+       bundToViewModel()
    }
-   
-   private func bindViewModel() {
-      viewModel.$state
-         .sink { [weak self] state in
+    
+    override func viewDidAppear(_ animated: Bool) {
+        onAppearPublisher.send(())
+    }
+    func bundToViewModel() {
+        cancellables.removeAll()
+        let input = MainViewModelInput(onAppear: onAppearPublisher.eraseToAnyPublisher(),
+                                       onOptionTapped: (onOptionTappedPublisher.eraseToAnyPublisher()),
+                                       onSaveTapped: saveButtonTapsPublisher.eraseToAnyPublisher())
+        
+        let output = viewModel.transform(input: input)
+        output.sink { [weak self] state in
             self?.handleState(state)
-         }
-         .store(in: &cancellables)
-      viewModel.loadUserData()
-   }
+        }.store(in: &cancellables)
+    }
+    
    
    private func handleState(_ state: MainViewState) {
       switch state {
@@ -42,7 +65,10 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainViewDelegate {
-   func didTapSaveButton() {
-      viewModel.save(value: viewModel.textFieldText)
+   func didTapOption(with text: String) {
+      onOptionTappedPublisher.send(text)
+   }
+   func didTapSaveButton(with text: String?) {
+      saveButtonTapsPublisher.send(text)
    }
 }

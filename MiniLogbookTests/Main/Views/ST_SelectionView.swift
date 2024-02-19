@@ -27,11 +27,11 @@ class ST_SelectionView: XCTestCase {
    }
    
    private func givenSelectedState() -> SelectionViewModel {
-      .init(image: UIImage(named: "selected")!, text: Constants.title)
+      .init(image: .selected, text: Constants.title)
    }
    
    private func givenUnselectedState() -> SelectionViewModel {
-      .init(image: UIImage(named: "unselected")!, text: Constants.title)
+      .init(image: .unselected, text: Constants.title)
    }
    
    private enum Constants {

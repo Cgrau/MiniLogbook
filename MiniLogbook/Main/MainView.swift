@@ -2,12 +2,12 @@ import UIKit
 import SnapKit
 
 protocol MainViewDelegate: AnyObject {
-   func didTapSaveButton()
+   func didTapSaveButton(with text: String?)
+   func didTapOption(with text: String)
 }
 
-final class MainView: View {
+final class MainView: View, SelectionViewDelegate {
    weak var delegate: MainViewDelegate?
-   var tableView = UITableView()
    
    private enum Constants {
       static let undelineHeight = 2
@@ -28,6 +28,7 @@ final class MainView: View {
       label.textAlignment = .center
       label.font = Constants.Result.font
       label.translatesAutoresizingMaskIntoConstraints = false
+      label.numberOfLines = 0
       return label
    }()
    
@@ -45,7 +46,7 @@ final class MainView: View {
       return label
    }()
    
-   private var measurementOptions: UIStackView = {
+   private var measurementOptionsStackView: UIStackView = {
       let stackView = UIStackView()
       stackView.axis = .vertical
       stackView.alignment = .fill
@@ -69,6 +70,7 @@ final class MainView: View {
       textField.font = Constants.Result.font
       textField.textColor = .gray
       textField.tintColor = .gray
+      textField.keyboardType = .numberPad
       textField.borderStyle = .roundedRect
       textField.borderRect(forBounds: .init(x: .zero, y: .zero, width: 5, height: 5))
       return textField
@@ -97,7 +99,7 @@ final class MainView: View {
       addSubview(resultLabel)
       addSubview(underline)
       addSubview(titleLabel)
-      addSubview(measurementOptions)
+      addSubview(measurementOptionsStackView)
       addSubview(textFieldStackView)
       textFieldStackView.addArrangedSubview(textField)
       textFieldStackView.addArrangedSubview(textFieldTitle)
@@ -112,7 +114,8 @@ final class MainView: View {
    override func setupConstraints() {
       resultLabel.snp.makeConstraints { make in
          make.top.equalTo(safeAreaLayoutGuide).offset(Spacing.l)
-         make.horizontalEdges.equalToSuperview().offset(Spacing.l)
+         make.leading.equalToSuperview().offset(Spacing.l)
+         make.trailing.equalToSuperview().offset(-Spacing.l)
       }
       underline.snp.makeConstraints { make in
          make.top.equalTo(resultLabel.snp.bottom).offset(Spacing.s)
@@ -125,36 +128,47 @@ final class MainView: View {
          make.leading.equalTo(underline).offset(Spacing.xs)
          make.trailing.equalTo(underline).offset(-Spacing.xs)
       }
-      measurementOptions.snp.makeConstraints { make in
+      measurementOptionsStackView.snp.makeConstraints { make in
          make.top.equalTo(titleLabel.snp.bottom).offset(Spacing.m)
          make.leading.equalTo(titleLabel)
          make.trailing.equalTo(titleLabel)
       }
       textFieldStackView.snp.makeConstraints { make in
-         make.top.equalTo(measurementOptions.snp.bottom).offset(Spacing.xl)
-         make.leading.equalTo(measurementOptions)
-         make.trailing.equalTo(measurementOptions)
+         make.top.equalTo(measurementOptionsStackView.snp.bottom).offset(Spacing.xl)
+         make.leading.equalTo(measurementOptionsStackView)
+         make.trailing.equalTo(measurementOptionsStackView)
       }
       saveButton.snp.makeConstraints { make in
          make.top.equalTo(textFieldStackView.snp.bottom).offset(Spacing.l)
-         make.trailing.equalTo(measurementOptions)
-         make.leading.equalTo(measurementOptions.snp.trailing).offset(-200)
+         make.trailing.equalTo(measurementOptionsStackView)
+         make.leading.equalTo(measurementOptionsStackView.snp.trailing).offset(-200)
          make.height.equalTo(Constants.Button.height)
       }
    }
    
    @objc func saveButtonTapped() {
-      delegate?.didTapSaveButton()
+      delegate?.didTapSaveButton(with: textField.text)
    }
 }
 
 extension MainView {
-   func apply(viewModel: MainViewModel) {
+   func apply(viewModel: ScreenViewModel) {
+      measurementOptionsStackView.subviews.forEach { $0.removeFromSuperview() }
       resultLabel.text = viewModel.result
       titleLabel.text = viewModel.description
-      viewModel.options.forEach { measurementOptions.addArrangedSubview($0) }
+      viewModel.options.forEach { [weak self] in
+         guard let self else { return }
+         let optionView = SelectionView()
+         optionView.delegate = self
+         optionView.apply(viewModel: $0)
+         measurementOptionsStackView.addArrangedSubview(optionView)
+      }
       textField.text = viewModel.textFieldText
       textFieldTitle.text = viewModel.textFieldTitle
       saveButton.setTitle(viewModel.buttonTitle, for: .normal)
+   }
+   
+   func didTapButton(with title: String) {
+      delegate?.didTapOption(with: title)
    }
 }
