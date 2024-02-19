@@ -28,8 +28,8 @@ class CustomTabBarController: UITabBarController {
       return initialTabBar
    }()
    
-   lazy public var finalTabBar: UIViewController = {
-      let finalTabBar = UIViewController()
+   lazy public var finalTabBar: ListViewController = {
+      let finalTabBar = ListViewController.buildDefault()
       let tabBarItem = UITabBarItem(title: Constants.secondTabTitle, image: nil, tag: 1)
       finalTabBar.tabBarItem = tabBarItem
       return finalTabBar

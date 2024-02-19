@@ -15,6 +15,19 @@
 		2C94B8C22B83E24F0029DFD3 /* SelectedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8C12B83E24F0029DFD3 /* SelectedAction.swift */; };
 		2C94B8C42B83E3A90029DFD3 /* SaveAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8C32B83E3A90029DFD3 /* SaveAction.swift */; };
 		2C94B8CA2B83F3FC0029DFD3 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8C92B83F3FC0029DFD3 /* CustomTabBarController.swift */; };
+		2C94B8CD2B8402150029DFD3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8CC2B8402150029DFD3 /* ListViewController.swift */; };
+		2C94B8CF2B84021B0029DFD3 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8CE2B84021B0029DFD3 /* ListView.swift */; };
+		2C94B8D12B8402230029DFD3 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8D02B8402230029DFD3 /* ListViewModel.swift */; };
+		2C94B8D32B84022C0029DFD3 /* ListViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8D22B84022C0029DFD3 /* ListViewState.swift */; };
+		2C94B8D62B8404050029DFD3 /* GetSavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8D52B8404050029DFD3 /* GetSavedData.swift */; };
+		2C94B8D82B84053C0029DFD3 /* ListTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8D72B84053C0029DFD3 /* ListTableViewAdapter.swift */; };
+		2C94B8DA2B8405620029DFD3 /* ValueViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8D92B8405620029DFD3 /* ValueViewCell.swift */; };
+		2C94B8DC2B8405730029DFD3 /* ValueCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8DB2B8405730029DFD3 /* ValueCellViewModel.swift */; };
+		2C94B8DE2B8406140029DFD3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8DD2B8406140029DFD3 /* TableViewCell.swift */; };
+		2C94B8E02B84062D0029DFD3 /* TableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8DF2B84062D0029DFD3 /* TableViewCell+ReuseIdentifier.swift */; };
+		2C94B8E22B8406500029DFD3 /* ListRowCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8E12B8406500029DFD3 /* ListRowCellController.swift */; };
+		2C94B8E42B8407590029DFD3 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8E32B8407590029DFD3 /* Reusable.swift */; };
+		2C94B8E62B8407770029DFD3 /* ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8E52B8407770029DFD3 /* ClassName.swift */; };
 		2CF3C9712B80CC81007B080F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9702B80CC81007B080F /* AppDelegate.swift */; };
 		2CF3C9732B80CC81007B080F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9722B80CC81007B080F /* SceneDelegate.swift */; };
 		2CF3C9752B80CC81007B080F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9742B80CC81007B080F /* MainViewController.swift */; };
@@ -54,6 +67,19 @@
 		2C94B8C12B83E24F0029DFD3 /* SelectedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAction.swift; sourceTree = "<group>"; };
 		2C94B8C32B83E3A90029DFD3 /* SaveAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAction.swift; sourceTree = "<group>"; };
 		2C94B8C92B83F3FC0029DFD3 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		2C94B8CC2B8402150029DFD3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2C94B8CE2B84021B0029DFD3 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		2C94B8D02B8402230029DFD3 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		2C94B8D22B84022C0029DFD3 /* ListViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewState.swift; sourceTree = "<group>"; };
+		2C94B8D52B8404050029DFD3 /* GetSavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSavedData.swift; sourceTree = "<group>"; };
+		2C94B8D72B84053C0029DFD3 /* ListTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewAdapter.swift; sourceTree = "<group>"; };
+		2C94B8D92B8405620029DFD3 /* ValueViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueViewCell.swift; sourceTree = "<group>"; };
+		2C94B8DB2B8405730029DFD3 /* ValueCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueCellViewModel.swift; sourceTree = "<group>"; };
+		2C94B8DD2B8406140029DFD3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2C94B8DF2B84062D0029DFD3 /* TableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		2C94B8E12B8406500029DFD3 /* ListRowCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowCellController.swift; sourceTree = "<group>"; };
+		2C94B8E32B8407590029DFD3 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		2C94B8E52B8407770029DFD3 /* ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassName.swift; sourceTree = "<group>"; };
 		2CF3C96D2B80CC81007B080F /* MiniLogbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniLogbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF3C9702B80CC81007B080F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF3C9722B80CC81007B080F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +146,7 @@
 		2C94B8C62B83E65E0029DFD3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				2C94B8D52B8404050029DFD3 /* GetSavedData.swift */,
 				2C94B8B22B8352830029DFD3 /* SaveValue.swift */,
 				2C94B8BB2B83785B0029DFD3 /* GetAverageValue.swift */,
 				2C94B8BF2B83E0EB0029DFD3 /* GetLaunchData.swift */,
@@ -134,6 +161,7 @@
 			children = (
 				2C94B8C82B83F3F20029DFD3 /* TabController */,
 				2CF9FA382B80E434000AA3EB /* Main */,
+				2C94B8CB2B8401FD0029DFD3 /* List */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -144,6 +172,29 @@
 				2C94B8C92B83F3FC0029DFD3 /* CustomTabBarController.swift */,
 			);
 			path = TabController;
+			sourceTree = "<group>";
+		};
+		2C94B8CB2B8401FD0029DFD3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2C94B8CC2B8402150029DFD3 /* ListViewController.swift */,
+				2C94B8CE2B84021B0029DFD3 /* ListView.swift */,
+				2C94B8D02B8402230029DFD3 /* ListViewModel.swift */,
+				2C94B8D22B84022C0029DFD3 /* ListViewState.swift */,
+				2C94B8D72B84053C0029DFD3 /* ListTableViewAdapter.swift */,
+				2C94B8E12B8406500029DFD3 /* ListRowCellController.swift */,
+				2C94B8D42B8402300029DFD3 /* Subviews */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		2C94B8D42B8402300029DFD3 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2C94B8D92B8405620029DFD3 /* ValueViewCell.swift */,
+				2C94B8DB2B8405730029DFD3 /* ValueCellViewModel.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		2CF3C9642B80CC80007B080F = {
@@ -216,6 +267,10 @@
 			children = (
 				2CF9FA3C2B80EB7B000AA3EB /* View.swift */,
 				2CF9FA4F2B811F1A000AA3EB /* Spacing.swift */,
+				2C94B8DD2B8406140029DFD3 /* TableViewCell.swift */,
+				2C94B8DF2B84062D0029DFD3 /* TableViewCell+ReuseIdentifier.swift */,
+				2C94B8E32B8407590029DFD3 /* Reusable.swift */,
+				2C94B8E52B8407770029DFD3 /* ClassName.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -457,23 +512,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C94B8D62B8404050029DFD3 /* GetSavedData.swift in Sources */,
 				2CF3C9752B80CC81007B080F /* MainViewController.swift in Sources */,
+				2C94B8E22B8406500029DFD3 /* ListRowCellController.swift in Sources */,
+				2C94B8CF2B84021B0029DFD3 /* ListView.swift in Sources */,
 				2C94B8A72B8177F50029DFD3 /* MainViewState.swift in Sources */,
 				2CF9FA412B80F136000AA3EB /* SelectionView.swift in Sources */,
 				2C94B8BA2B8376E00029DFD3 /* UserDefaultsLocalStorage.swift in Sources */,
+				2C94B8E02B84062D0029DFD3 /* TableViewCell+ReuseIdentifier.swift in Sources */,
 				2C94B8C22B83E24F0029DFD3 /* SelectedAction.swift in Sources */,
 				2C94B8C02B83E0EB0029DFD3 /* GetLaunchData.swift in Sources */,
 				2CF9FA472B80F2D3000AA3EB /* SelectionViewModel.swift in Sources */,
 				2CF9FA3A2B80E47F000AA3EB /* MainView.swift in Sources */,
 				2C94B8C42B83E3A90029DFD3 /* SaveAction.swift in Sources */,
+				2C94B8D32B84022C0029DFD3 /* ListViewState.swift in Sources */,
+				2C94B8D12B8402230029DFD3 /* ListViewModel.swift in Sources */,
+				2C94B8DE2B8406140029DFD3 /* TableViewCell.swift in Sources */,
 				2CF9FA3D2B80EB7B000AA3EB /* View.swift in Sources */,
+				2C94B8E62B8407770029DFD3 /* ClassName.swift in Sources */,
 				2C94B8B32B8352830029DFD3 /* SaveValue.swift in Sources */,
+				2C94B8DC2B8405730029DFD3 /* ValueCellViewModel.swift in Sources */,
 				2CF3C9712B80CC81007B080F /* AppDelegate.swift in Sources */,
 				2C94B8CA2B83F3FC0029DFD3 /* CustomTabBarController.swift in Sources */,
 				2CF9FA502B811F1A000AA3EB /* Spacing.swift in Sources */,
+				2C94B8CD2B8402150029DFD3 /* ListViewController.swift in Sources */,
 				2CF3C9732B80CC81007B080F /* SceneDelegate.swift in Sources */,
 				2CF9FA522B81204D000AA3EB /* MainViewModel.swift in Sources */,
 				2C94B8BC2B83785B0029DFD3 /* GetAverageValue.swift in Sources */,
+				2C94B8E42B8407590029DFD3 /* Reusable.swift in Sources */,
+				2C94B8DA2B8405620029DFD3 /* ValueViewCell.swift in Sources */,
+				2C94B8D82B84053C0029DFD3 /* ListTableViewAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

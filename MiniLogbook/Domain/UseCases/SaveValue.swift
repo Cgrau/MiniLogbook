@@ -9,17 +9,21 @@ final class SaveValue {
    }
    
    private let repository: LocalStorage
+   private let getSavedData: GetSavedData.UseCase
    
    static func buildDefault() -> Self {
-      self.init(repository: UserDefaultsLocalStorage.buildDefault())
+      self.init(repository: UserDefaultsLocalStorage.buildDefault(),
+                getSavedData: GetSavedData.buildDefault().execute)
    }
    
-   init(repository: LocalStorage) {
+   init(repository: LocalStorage,
+        getSavedData: @escaping GetSavedData.UseCase) {
       self.repository = repository
+      self.getSavedData = getSavedData
    }
    
    func execute(value: String, selectedType: SelectedType) -> Void {
-      var values = repository.retrieveValues()
+      var values = getSavedData()
       switch selectedType {
       case .mgDL:
          values.append(value)
