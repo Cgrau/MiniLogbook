@@ -10,8 +10,14 @@ class ST_MainView: XCTestCase {
       sut = MainView(frame: .init(origin: .zero, size: CGSize(width: 375, height: 667)))
    }
    
-   func test_selected_view_state() {
+   func test_initial_view_state() {
       let viewModel = givenSelectedState()
+      sut.apply(viewModel: viewModel)
+      assertSnapshot(matching: sut, as: .image)
+   }
+   
+   func test_error_view_state() {
+      let viewModel = givenSelectedState(error: Constants.errorText)
       sut.apply(viewModel: viewModel)
       assertSnapshot(matching: sut, as: .image)
    }
@@ -20,13 +26,14 @@ class ST_MainView: XCTestCase {
       sut = nil
    }
    
-   private func givenSelectedState() -> ScreenViewModel {
+   private func givenSelectedState(error: String? = nil) -> ScreenViewModel {
       .init(result: Constants.result,
             description: Constants.description,
             options: Constants.Options.viewModels,
             textFieldText: "",
             textFieldTitle: SelectedType.mgDL.rawValue,
             buttonTitle: Constants.buttonTitle,
+            errorText: error,
             selectedType: .mgDL)
    }
    
@@ -44,5 +51,6 @@ class ST_MainView: XCTestCase {
          ]
       }
       static let buttonTitle = "Save"
+      static let errorText = "Number should be greater than 0"
    }
 }

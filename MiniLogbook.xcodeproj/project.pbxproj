@@ -28,6 +28,7 @@
 		2C94B8E22B8406500029DFD3 /* ListRowCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8E12B8406500029DFD3 /* ListRowCellController.swift */; };
 		2C94B8E42B8407590029DFD3 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8E32B8407590029DFD3 /* Reusable.swift */; };
 		2C94B8E62B8407770029DFD3 /* ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8E52B8407770029DFD3 /* ClassName.swift */; };
+		2C94B8ED2B84CC680029DFD3 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8EC2B84CC680029DFD3 /* SaveData.swift */; };
 		2CF3C9712B80CC81007B080F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9702B80CC81007B080F /* AppDelegate.swift */; };
 		2CF3C9732B80CC81007B080F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9722B80CC81007B080F /* SceneDelegate.swift */; };
 		2CF3C9752B80CC81007B080F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C9742B80CC81007B080F /* MainViewController.swift */; };
@@ -80,6 +81,7 @@
 		2C94B8E12B8406500029DFD3 /* ListRowCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowCellController.swift; sourceTree = "<group>"; };
 		2C94B8E32B8407590029DFD3 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		2C94B8E52B8407770029DFD3 /* ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassName.swift; sourceTree = "<group>"; };
+		2C94B8EC2B84CC680029DFD3 /* SaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		2CF3C96D2B80CC81007B080F /* MiniLogbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniLogbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF3C9702B80CC81007B080F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF3C9722B80CC81007B080F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				2C94B8D52B8404050029DFD3 /* GetSavedData.swift */,
+				2C94B8EC2B84CC680029DFD3 /* SaveData.swift */,
 				2C94B8B22B8352830029DFD3 /* SaveValue.swift */,
 				2C94B8BB2B83785B0029DFD3 /* GetAverageValue.swift */,
 				2C94B8BF2B83E0EB0029DFD3 /* GetLaunchData.swift */,
@@ -525,6 +528,7 @@
 				2CF9FA472B80F2D3000AA3EB /* SelectionViewModel.swift in Sources */,
 				2CF9FA3A2B80E47F000AA3EB /* MainView.swift in Sources */,
 				2C94B8C42B83E3A90029DFD3 /* SaveAction.swift in Sources */,
+				2C94B8ED2B84CC680029DFD3 /* SaveData.swift in Sources */,
 				2C94B8D32B84022C0029DFD3 /* ListViewState.swift in Sources */,
 				2C94B8D12B8402230029DFD3 /* ListViewModel.swift in Sources */,
 				2C94B8DE2B8406140029DFD3 /* TableViewCell.swift in Sources */,

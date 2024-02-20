@@ -1,4 +1,3 @@
-import Combine
 import Foundation
 
 final class GetAverageValue {
@@ -8,18 +7,18 @@ final class GetAverageValue {
       static let conversionRate: Double = 18.0182
    }
    
-   private let repository: LocalStorage
+   private let getSavedData: GetSavedData.UseCase
    
    static func buildDefault() -> Self {
-      self.init(repository: UserDefaultsLocalStorage.buildDefault())
+      self.init(getSavedData: GetSavedData.buildDefault().execute)
    }
    
-   init(repository: LocalStorage) {
-      self.repository = repository
+   init(getSavedData: @escaping GetSavedData.UseCase) {
+      self.getSavedData = getSavedData
    }
    
    func execute(selectedType: SelectedType) -> Double {
-      let values = repository.retrieveValues()
+      let values = getSavedData()
       guard values.count != 0 else { return 0 }
       let average = values.compactMap { Double($0.replacingOccurrences(of: ",", with: ".")) }.reduce(0, +) / Double(values.count)
       switch selectedType {

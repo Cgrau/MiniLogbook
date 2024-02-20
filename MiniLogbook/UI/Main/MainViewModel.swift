@@ -66,6 +66,11 @@ public class MainViewModel: ObservableObject, MainViewModelable {
          guard let self, let text, case .loaded(var viewModel) = self.state else { return .loading }
          guard text != viewModel.textFieldText else { return .idle }
          viewModel.textFieldText = text
+         if Double(viewModel.textFieldText.replacingOccurrences(of: ",", with: ".")) != 0 {
+            viewModel.errorText = ""
+         } else {
+            viewModel.errorText = "Number should be greater than 0"
+         }
          return .loaded(viewModel)
       }.eraseToAnyPublisher()
       

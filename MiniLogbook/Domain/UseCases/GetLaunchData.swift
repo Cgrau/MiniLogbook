@@ -1,4 +1,3 @@
-import Combine
 import UIKit
 
 final class GetLaunchData {
@@ -37,7 +36,7 @@ final class GetLaunchData {
    func execute() -> ScreenViewModel {
       let selectedOption = Constants.Options.viewModels.first?.type.rawValue ?? ""
       return .init(
-         result: String(format: Constants.result, String(format: "%.2f", getAverageValue(.mgDL)), selectedOption),
+         result: String(format: Constants.result, String(format: "%.2f", getAverageValue(.mgDL)), selectedOption).replacingOccurrences(of: ".", with: ","),
          description: Constants.description,
          options: Constants.Options.viewModels,
          textFieldText: "",

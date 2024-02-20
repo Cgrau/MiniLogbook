@@ -1,7 +1,7 @@
 import Foundation
 
-final class GetSavedData {
-   typealias UseCase = () -> [String]
+final class SaveData {
+   typealias UseCase = ([String]) -> Void
    
    private let repository: LocalStorage
    
@@ -13,7 +13,7 @@ final class GetSavedData {
       self.repository = repository
    }
    
-   func execute() -> [String] {
-      return repository.retrieveValues().map { $0.replacingOccurrences(of: ".", with: ",") }
+   func execute(values: [String]) -> Void {
+      repository.save(values: values)
    }
 }

@@ -1,4 +1,3 @@
-import Combine
 import UIKit
 
 final class SelectedAction {
@@ -22,30 +21,41 @@ final class SelectedAction {
    func execute(selectedOption: String, viewModel: ScreenViewModel) -> ScreenViewModel {
       guard selectedOption != viewModel.selectedType.rawValue else { return viewModel }
       var expectedViewModel = viewModel
-      expectedViewModel.options = expectedViewModel.options.map {
+      handleOptions(by: selectedOption, viewModel: &expectedViewModel)
+      handleTextFieldText(viewModel: &expectedViewModel)
+      expectedViewModel.errorText = nil
+      expectedViewModel.textFieldTitle = expectedViewModel.selectedType.rawValue
+      expectedViewModel.result = String(format: Constants.result,
+                                        String(self.getAverageValue(expectedViewModel.selectedType)).replacingOccurrences(of: ".", with: ","),
+                                        expectedViewModel.selectedType.rawValue)
+      return expectedViewModel
+   }
+   
+   private func handleOptions(by selectedOption: String, viewModel: inout ScreenViewModel) {
+      viewModel.options = viewModel.options.map {
          if $0.type.rawValue == selectedOption {
-            expectedViewModel.selectedType = $0.type
+            viewModel.selectedType = $0.type
             return .init(image: .selected, type: $0.type)
          } else {
             return .init(image: .unselected, type: $0.type)
          }
       }
-      
-      if let expectedValue = Double(expectedViewModel.textFieldText) {
-         switch expectedViewModel.selectedType {
-         case .mgDL:
-            expectedViewModel.textFieldText = String(expectedValue * Constants.conversionRate)
-         case .mmolL:
-            expectedViewModel.textFieldText = String(expectedValue / Constants.conversionRate)
-         }
+   }
+   
+   private func handleTextFieldText(viewModel: inout ScreenViewModel) {
+      if let expectedValue = Double(viewModel.textFieldText.replacingOccurrences(of: ",", with: ".")) {
+         let convertedValue = convert(value: expectedValue, by: viewModel.selectedType)
+         let updatedConversion = convertedValue.replacingOccurrences(of: ".", with: ",")
+         viewModel.textFieldText = updatedConversion
       }
-      
-      expectedViewModel.errorText = nil
-      expectedViewModel.textFieldTitle = expectedViewModel.selectedType.rawValue
-      expectedViewModel.result = String(format: Constants.result,
-                                        String(format: "%.2f",
-                                               self.getAverageValue(expectedViewModel.selectedType)),
-                                        expectedViewModel.selectedType.rawValue)
-      return expectedViewModel
+   }
+   
+   private func convert(value: Double, by type: SelectedType) -> String {
+      switch type {
+      case .mgDL:
+         return String(value * Constants.conversionRate)
+      case .mmolL:
+         return String(value / Constants.conversionRate)
+      }
    }
 }
