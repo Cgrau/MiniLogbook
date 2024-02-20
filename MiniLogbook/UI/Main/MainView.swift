@@ -4,6 +4,7 @@ import SnapKit
 protocol MainViewDelegate: AnyObject {
    func didTapSaveButton(with text: String?)
    func didTapOption(with text: String)
+   func didTextFieldTextChange(with text: String?)
 }
 
 final class MainView: View {
@@ -121,6 +122,7 @@ final class MainView: View {
       textFieldTitle.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
       addSubview(saveButton)
       saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+      textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
    }
    
    override func setupConstraints() {
@@ -166,6 +168,12 @@ final class MainView: View {
    @objc func saveButtonTapped() {
       delegate?.didTapSaveButton(with: textField.text)
    }
+   
+   @objc func textFieldDidChange(_ textField: UITextField) {
+      if let updatedText = textField.text {
+         delegate?.didTextFieldTextChange(with: updatedText)
+      }
+   }
 }
 
 extension MainView {
@@ -180,7 +188,9 @@ extension MainView {
          optionView.apply(viewModel: $0)
          measurementOptionsStackView.addArrangedSubview(optionView)
       }
-      textField.text = viewModel.textFieldText
+      if textField.text != viewModel.textFieldText {
+         textField.text = viewModel.textFieldText
+      }
       textFieldTitle.text = viewModel.textFieldTitle
       errorLabel.text = viewModel.errorText
       saveButton.setTitle(viewModel.buttonTitle, for: .normal)

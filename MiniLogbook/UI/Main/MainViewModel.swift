@@ -1,18 +1,13 @@
 import Combine
 import UIKit
 
-enum ScreenState: Equatable {
-   case initial
-   case error
-   case loaded(ScreenViewModel)
-}
-
 typealias MainViewModelOutput = AnyPublisher<MainViewState, Never>
 
 public struct MainViewModelInput {
    let onAppear: AnyPublisher<Void, Never>
    let onOptionTapped: AnyPublisher<String, Never>
    let onSaveTapped: AnyPublisher<String?, Never>
+   let onTextFieldTextChanged: AnyPublisher<String?, Never>
 }
 
 protocol MainViewModelable: AnyObject {
@@ -66,7 +61,15 @@ public class MainViewModel: ObservableObject, MainViewModelable {
          return .loaded(viewModel)
       }.eraseToAnyPublisher()
       
-      return Publishers.Merge3(onAppearAction, saveAction, selectedAction)
+      // MARK: - on TextField Action
+      let textfieldAction = input.onTextFieldTextChanged.map { [weak self] (text) -> MainViewState in
+         guard let self, let text, case .loaded(var viewModel) = self.state else { return .loading }
+         guard text != viewModel.textFieldText else { return .idle }
+         viewModel.textFieldText = text
+         return .loaded(viewModel)
+      }.eraseToAnyPublisher()
+      
+      return Publishers.Merge4(onAppearAction, saveAction, selectedAction, textfieldAction)
          .removeDuplicates()
          .handleEvents(receiveOutput: { [weak self] in self?.state = $0 })
          .eraseToAnyPublisher()

@@ -1,4 +1,5 @@
 enum MainViewState: Equatable {
+   case idle
    case loading
    case loaded(ScreenViewModel)
    case error(String)

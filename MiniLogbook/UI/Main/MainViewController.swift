@@ -8,6 +8,7 @@ class MainViewController: UIViewController {
    private var onAppearPublisher = PassthroughSubject<Void, Never>()
    private var onOptionTappedPublisher = PassthroughSubject<String, Never>()
    private var saveButtonTapsPublisher = PassthroughSubject<(String?), Never>()
+   private var onTextFieldTextChangedPublisher = PassthroughSubject<String?, Never>()
    
    required init(viewModel: MainViewModelable) {
       self.viewModel = viewModel
@@ -40,7 +41,8 @@ class MainViewController: UIViewController {
       cancellables.removeAll()
       let input = MainViewModelInput(onAppear: onAppearPublisher.eraseToAnyPublisher(),
                                      onOptionTapped: (onOptionTappedPublisher.eraseToAnyPublisher()),
-                                     onSaveTapped: saveButtonTapsPublisher.eraseToAnyPublisher())
+                                     onSaveTapped: saveButtonTapsPublisher.eraseToAnyPublisher(),
+                                     onTextFieldTextChanged: onTextFieldTextChangedPublisher.eraseToAnyPublisher())
       
       let output = viewModel.transform(input: input)
       output.sink { [weak self] state in
@@ -51,6 +53,8 @@ class MainViewController: UIViewController {
    
    private func handleState(_ state: MainViewState) {
       switch state {
+      case .idle:
+         print("Idle")
       case .loading:
          print("Loading...") // we could add a loader, but since we are not getting requesting remote data it doesn't make sense
       case .loaded(let mainViewModel):
@@ -72,5 +76,9 @@ extension MainViewController: MainViewDelegate {
    
    func didTapSaveButton(with text: String?) {
       saveButtonTapsPublisher.send(text)
+   }
+   
+   func didTextFieldTextChange(with text: String?) {
+      onTextFieldTextChangedPublisher.send(text)
    }
 }

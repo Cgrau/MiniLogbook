@@ -29,7 +29,7 @@ final class SaveValue {
          values.append(value)
       case .mmolL:
          guard let expectedValue = Double(value) else { return }
-         values.append(String(expectedValue / Constants.conversionRate))
+         values.append(String(expectedValue * Constants.conversionRate))
       }
       repository.save(values: values)
    }

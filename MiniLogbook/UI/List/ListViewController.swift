@@ -47,10 +47,11 @@ class ListViewController: UIViewController {
    
    private func handleState(_ state: ListViewState) {
       switch state {
+      case .idle:
+         print("Idle")
       case .loading:
          print("Loading...") // we could add a loader, but since we are not getting requesting remote data it doesn't make sense
       case .loaded(let listViewModel):
-         listView.apply(viewModel: listViewModel)
          adapter.set(viewModels: listViewModel.values.map { .init(title: $0) })
       case .error(let errorMessage):
          print("Error: \(errorMessage)") // we could add an error message, but since our use cases cannot fail, we won't display any error

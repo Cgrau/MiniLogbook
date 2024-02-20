@@ -1,4 +1,5 @@
 enum ListViewState: Equatable {
+   case idle
    case loading
    case loaded(ListScreenViewModel)
    case error(String)
