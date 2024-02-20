@@ -21,17 +21,23 @@ final class SaveValue {
       self.saveData = saveData
    }
    
-   func execute(value: String, selectedType: SelectedType) -> Void {
-      var values = getSavedData()
-      let newValue = value.replacingOccurrences(of: ",", with: ".")
-      switch selectedType {
-      case .mgDL:
-         values.append(newValue)
-      case .mmolL:
-         guard let expectedValue = Double(newValue) else { return }
-         let newValue = String(expectedValue * Constants.conversionRate)
-         values.append(newValue)
-      }
-      saveData(values)
+   func execute(value: String, selectedType: SelectedType) {
+       var values = getSavedData()
+       let newValue = value.replacingOccurrences(of: ",", with: ".")
+
+       guard let originalDouble = Double(newValue) else {
+           return
+       }
+
+       let roundedValue: Double
+       switch selectedType {
+       case .mgDL:
+           roundedValue = originalDouble
+       case .mmolL:
+           roundedValue = (originalDouble * Constants.conversionRate).rounded(to: 6)
+       }
+
+       values.append(String(roundedValue))
+       saveData(values)
    }
 }

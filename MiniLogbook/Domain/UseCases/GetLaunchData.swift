@@ -36,7 +36,7 @@ final class GetLaunchData {
    func execute() -> ScreenViewModel {
       let selectedOption = Constants.Options.viewModels.first?.type.rawValue ?? ""
       return .init(
-         result: String(format: Constants.result, String(format: "%.2f", getAverageValue(.mgDL)), selectedOption).replacingOccurrences(of: ".", with: ","),
+         result: getAverageString(selectedOption: selectedOption),
          description: Constants.description,
          options: Constants.Options.viewModels,
          textFieldText: "",
@@ -45,5 +45,15 @@ final class GetLaunchData {
          errorText: nil,
          selectedType: .mgDL
       )
+   }
+   
+   private func getAverageString(selectedOption: String) -> String {
+      var averageString = String(getAverageValue(.mgDL).rounded(to: 6))
+      if averageString == "0.0" {
+         averageString = "0"
+      }
+      return String(format: Constants.result,
+                    averageString,
+                    selectedOption).replacingOccurrences(of: ".", with: ",")
    }
 }

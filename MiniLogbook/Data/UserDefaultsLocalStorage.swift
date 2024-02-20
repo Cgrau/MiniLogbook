@@ -1,5 +1,6 @@
 import Foundation
 
+// sourcery: AutoMockable
 protocol LocalStorage {
    func save(values: [String])
    func retrieveValues() -> [String]

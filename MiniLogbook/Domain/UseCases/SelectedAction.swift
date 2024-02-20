@@ -20,18 +20,22 @@ final class SelectedAction {
    
    func execute(selectedOption: String, viewModel: ScreenViewModel) -> ScreenViewModel {
       guard selectedOption != viewModel.selectedType.rawValue else { return viewModel }
+      
       var expectedViewModel = viewModel
-      handleOptions(by: selectedOption, viewModel: &expectedViewModel)
-      handleTextFieldText(viewModel: &expectedViewModel)
+      updateOptions(by: selectedOption, viewModel: &expectedViewModel)
+      updateTextFieldText(viewModel: &expectedViewModel)
+      
       expectedViewModel.errorText = nil
       expectedViewModel.textFieldTitle = expectedViewModel.selectedType.rawValue
+      
+      let averageValue = self.getAverageValue(expectedViewModel.selectedType)
       expectedViewModel.result = String(format: Constants.result,
-                                        String(self.getAverageValue(expectedViewModel.selectedType)).replacingOccurrences(of: ".", with: ","),
+                                        formatValue(averageValue),
                                         expectedViewModel.selectedType.rawValue)
       return expectedViewModel
    }
    
-   private func handleOptions(by selectedOption: String, viewModel: inout ScreenViewModel) {
+   private func updateOptions(by selectedOption: String, viewModel: inout ScreenViewModel) {
       viewModel.options = viewModel.options.map {
          if $0.type.rawValue == selectedOption {
             viewModel.selectedType = $0.type
@@ -42,20 +46,23 @@ final class SelectedAction {
       }
    }
    
-   private func handleTextFieldText(viewModel: inout ScreenViewModel) {
+   private func updateTextFieldText(viewModel: inout ScreenViewModel) {
       if let expectedValue = Double(viewModel.textFieldText.replacingOccurrences(of: ",", with: ".")) {
          let convertedValue = convert(value: expectedValue, by: viewModel.selectedType)
-         let updatedConversion = convertedValue.replacingOccurrences(of: ".", with: ",")
-         viewModel.textFieldText = updatedConversion
+         viewModel.textFieldText = formatValue(convertedValue)
       }
    }
    
-   private func convert(value: Double, by type: SelectedType) -> String {
+   private func convert(value: Double, by type: SelectedType) -> Double {
       switch type {
       case .mgDL:
-         return String(value * Constants.conversionRate)
+         return value * Constants.conversionRate
       case .mmolL:
-         return String(value / Constants.conversionRate)
+         return value / Constants.conversionRate
       }
+   }
+   
+   private func formatValue(_ value: Double) -> String {
+      return String(value).replacingOccurrences(of: ".", with: ",")
    }
 }

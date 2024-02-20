@@ -5,6 +5,7 @@ target 'MiniLogbook' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'SnapKit', '5.6.0'
+  pod 'Sourcery', '2.1.7'
 
   # Pods for MiniLogbook
 

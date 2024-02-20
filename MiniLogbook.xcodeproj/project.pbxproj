@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C67FC8A2B84FFF60056C8E9 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FC892B84FFF50056C8E9 /* AutoMockable.generated.swift */; };
+		2C67FC8F2B8501300056C8E9 /* SaveDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FC8E2B8501300056C8E9 /* SaveDataSpec.swift */; };
+		2C67FC962B85031B0056C8E9 /* GetSavedDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FC952B85031B0056C8E9 /* GetSavedDataSpec.swift */; };
+		2C67FC982B8503D10056C8E9 /* SaveValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FC972B8503D10056C8E9 /* SaveValueSpec.swift */; };
+		2C67FC9A2B8508FE0056C8E9 /* GetAverageValueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FC992B8508FE0056C8E9 /* GetAverageValueSpec.swift */; };
+		2C67FC9C2B850CD90056C8E9 /* GetLaunchDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FC9B2B850CD90056C8E9 /* GetLaunchDataSpec.swift */; };
+		2C67FC9F2B85123A0056C8E9 /* Double+RoundedToPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FC9E2B85123A0056C8E9 /* Double+RoundedToPlaces.swift */; };
+		2C67FCA12B8515C50056C8E9 /* SelectedActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCA02B8515C50056C8E9 /* SelectedActionSpec.swift */; };
+		2C67FCA32B851A8F0056C8E9 /* SaveActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCA22B851A8F0056C8E9 /* SaveActionSpec.swift */; };
 		2C94B8A72B8177F50029DFD3 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8A62B8177F50029DFD3 /* MainViewState.swift */; };
 		2C94B8B32B8352830029DFD3 /* SaveValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8B22B8352830029DFD3 /* SaveValue.swift */; };
 		2C94B8BA2B8376E00029DFD3 /* UserDefaultsLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8B92B8376E00029DFD3 /* UserDefaultsLocalStorage.swift */; };
@@ -60,6 +69,15 @@
 
 /* Begin PBXFileReference section */
 		029C07A96E8D2FC2EE80D050 /* Pods-MiniLogbook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniLogbook.debug.xcconfig"; path = "Target Support Files/Pods-MiniLogbook/Pods-MiniLogbook.debug.xcconfig"; sourceTree = "<group>"; };
+		2C67FC892B84FFF50056C8E9 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
+		2C67FC8E2B8501300056C8E9 /* SaveDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataSpec.swift; sourceTree = "<group>"; };
+		2C67FC952B85031B0056C8E9 /* GetSavedDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSavedDataSpec.swift; sourceTree = "<group>"; };
+		2C67FC972B8503D10056C8E9 /* SaveValueSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveValueSpec.swift; sourceTree = "<group>"; };
+		2C67FC992B8508FE0056C8E9 /* GetAverageValueSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAverageValueSpec.swift; sourceTree = "<group>"; };
+		2C67FC9B2B850CD90056C8E9 /* GetLaunchDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLaunchDataSpec.swift; sourceTree = "<group>"; };
+		2C67FC9E2B85123A0056C8E9 /* Double+RoundedToPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+RoundedToPlaces.swift"; sourceTree = "<group>"; };
+		2C67FCA02B8515C50056C8E9 /* SelectedActionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActionSpec.swift; sourceTree = "<group>"; };
+		2C67FCA22B851A8F0056C8E9 /* SaveActionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveActionSpec.swift; sourceTree = "<group>"; };
 		2C94B8A62B8177F50029DFD3 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		2C94B8B22B8352830029DFD3 /* SaveValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveValue.swift; sourceTree = "<group>"; };
 		2C94B8B92B8376E00029DFD3 /* UserDefaultsLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLocalStorage.swift; sourceTree = "<group>"; };
@@ -129,6 +147,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C67FC882B84FFF50056C8E9 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				2C67FC892B84FFF50056C8E9 /* AutoMockable.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		2C67FC8C2B8501000056C8E9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2C67FC952B85031B0056C8E9 /* GetSavedDataSpec.swift */,
+				2C67FC8E2B8501300056C8E9 /* SaveDataSpec.swift */,
+				2C67FC972B8503D10056C8E9 /* SaveValueSpec.swift */,
+				2C67FC992B8508FE0056C8E9 /* GetAverageValueSpec.swift */,
+				2C67FC9B2B850CD90056C8E9 /* GetLaunchDataSpec.swift */,
+				2C67FCA02B8515C50056C8E9 /* SelectedActionSpec.swift */,
+				2C67FCA22B851A8F0056C8E9 /* SaveActionSpec.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2C67FC9D2B8512290056C8E9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2C67FC9E2B85123A0056C8E9 /* Double+RoundedToPlaces.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		2C94B8B52B83762C0029DFD3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +286,9 @@
 		2CF3C9862B80CC83007B080F /* MiniLogbookTests */ = {
 			isa = PBXGroup;
 			children = (
+				2C67FC882B84FFF50056C8E9 /* Generated */,
 				2CF9FA482B80F33A000AA3EB /* Main */,
+				2C67FC8C2B8501000056C8E9 /* Domain */,
 			);
 			path = MiniLogbookTests;
 			sourceTree = "<group>";
@@ -260,6 +310,7 @@
 			children = (
 				2CF3C9702B80CC81007B080F /* AppDelegate.swift */,
 				2CF3C9722B80CC81007B080F /* SceneDelegate.swift */,
+				2C67FC9D2B8512290056C8E9 /* Utils */,
 				2CF9FA3E2B80F0A0000AA3EB /* UI */,
 			);
 			path = Core;
@@ -339,6 +390,7 @@
 				2CF3C96A2B80CC81007B080F /* Frameworks */,
 				2CF3C96B2B80CC81007B080F /* Resources */,
 				B37AB0777D399F9294C6C853 /* [CP] Embed Pods Frameworks */,
+				2C67FC8B2B85009E0056C8E9 /* AutoMockable */,
 			);
 			buildRules = (
 			);
@@ -430,6 +482,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2C67FC8B2B85009E0056C8E9 /* AutoMockable */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = AutoMockable;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --sources ./ --templates ./Templates/Sourcery --output ./MiniLogbookTests/Generated\n";
+		};
 		7EA8B31638321290BDC0CFCC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -524,6 +594,7 @@
 				2C94B8BA2B8376E00029DFD3 /* UserDefaultsLocalStorage.swift in Sources */,
 				2C94B8E02B84062D0029DFD3 /* TableViewCell+ReuseIdentifier.swift in Sources */,
 				2C94B8C22B83E24F0029DFD3 /* SelectedAction.swift in Sources */,
+				2C67FC9F2B85123A0056C8E9 /* Double+RoundedToPlaces.swift in Sources */,
 				2C94B8C02B83E0EB0029DFD3 /* GetLaunchData.swift in Sources */,
 				2CF9FA472B80F2D3000AA3EB /* SelectionViewModel.swift in Sources */,
 				2CF9FA3A2B80E47F000AA3EB /* MainView.swift in Sources */,
@@ -554,7 +625,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF9FA562B812126000AA3EB /* ST_MainView.swift in Sources */,
+				2C67FC982B8503D10056C8E9 /* SaveValueSpec.swift in Sources */,
+				2C67FC9C2B850CD90056C8E9 /* GetLaunchDataSpec.swift in Sources */,
+				2C67FC8F2B8501300056C8E9 /* SaveDataSpec.swift in Sources */,
+				2C67FCA12B8515C50056C8E9 /* SelectedActionSpec.swift in Sources */,
+				2C67FCA32B851A8F0056C8E9 /* SaveActionSpec.swift in Sources */,
 				2CF9FA4B2B80F371000AA3EB /* ST_SelectionView.swift in Sources */,
+				2C67FC8A2B84FFF60056C8E9 /* AutoMockable.generated.swift in Sources */,
+				2C67FC962B85031B0056C8E9 /* GetSavedDataSpec.swift in Sources */,
+				2C67FC9A2B8508FE0056C8E9 /* GetAverageValueSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,20 +1,26 @@
 PODS:
   - SnapKit (5.6.0)
   - SnapshotTesting (1.9.0)
+  - Sourcery (2.1.7):
+    - Sourcery/CLI-Only (= 2.1.7)
+  - Sourcery/CLI-Only (2.1.7)
 
 DEPENDENCIES:
   - SnapKit (= 5.6.0)
   - SnapshotTesting (= 1.9.0)
+  - Sourcery (= 2.1.7)
 
 SPEC REPOS:
   trunk:
     - SnapKit
     - SnapshotTesting
+    - Sourcery
 
 SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
+  Sourcery: 56012f6689368ca6be2b7d862f49d88f35b83c9f
 
-PODFILE CHECKSUM: c3e772f4f52b9d74336ff97e729e90653921b324
+PODFILE CHECKSUM: 8443466ab4bf0a59038bd9dece0913a8207534f7
 
-COCOAPODS: 1.15.0
+COCOAPODS: 1.15.2
