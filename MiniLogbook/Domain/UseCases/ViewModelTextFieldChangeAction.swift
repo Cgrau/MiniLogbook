@@ -1,6 +1,6 @@
 import UIKit
 
-final class TextFieldChangeAction {
+final class ViewModelTextFieldChangeAction {
    typealias UseCase = (_ text: String, _ viewModel: ScreenViewModel) -> ScreenViewModel
    
    required init() {}

@@ -1,8 +1,8 @@
 import XCTest
 @testable import MiniLogbook
 
-final class SelectedActionSpec: XCTestCase {
-   private var sut: SelectedAction!
+final class ViewModelSelectedActionSpec: XCTestCase {
+   private var sut: ViewModelSelectedAction!
    
    override func tearDown() {
       sut = nil
@@ -68,7 +68,7 @@ final class SelectedActionSpec: XCTestCase {
    }
    
    private func givenSUT(getAverageValueResponse: Double) {
-      sut = SelectedAction(getAverageValue: { _ in getAverageValueResponse })
+      sut = ViewModelSelectedAction(getAverageValue: { _ in getAverageValueResponse })
    }
    
    private func getViewModel(selectedOption: SelectedType) -> ScreenViewModel {

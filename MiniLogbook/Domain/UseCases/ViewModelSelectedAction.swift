@@ -1,6 +1,6 @@
 import UIKit
 
-final class SelectedAction {
+final class ViewModelSelectedAction {
    typealias UseCase = (_ selectedOption: String, _ viewModel: ScreenViewModel) -> ScreenViewModel
    
    private enum Constants {

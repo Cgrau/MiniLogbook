@@ -1,8 +1,8 @@
 import XCTest
 @testable import MiniLogbook
 
-final class GetLaunchDataSpec: XCTestCase {
-   private var sut: GetLaunchData!
+final class ViewModelGetLaunchDataSpec: XCTestCase {
+   private var sut: ViewModelGetLaunchData!
    private var getAverageValue: GetAverageValue!
    
    override func tearDown() {
@@ -40,7 +40,7 @@ final class GetLaunchDataSpec: XCTestCase {
    }
    
    private func givenSUT(getAverageValueResponse: Double) {
-      sut = GetLaunchData(getAverageValue: { _ in getAverageValueResponse })
+      sut = ViewModelGetLaunchData(getAverageValue: { _ in getAverageValueResponse })
    }
    
    enum Constants {

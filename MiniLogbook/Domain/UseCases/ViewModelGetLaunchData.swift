@@ -1,6 +1,6 @@
 import UIKit
 
-final class GetLaunchData {
+final class ViewModelGetLaunchData {
    typealias UseCase = () -> ScreenViewModel
    
    private enum Constants {

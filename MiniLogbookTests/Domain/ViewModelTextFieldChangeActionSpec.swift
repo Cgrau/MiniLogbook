@@ -1,12 +1,12 @@
 import XCTest
 @testable import MiniLogbook
 
-final class TextFieldChangeActionSpec: XCTestCase {
-   private var sut: TextFieldChangeAction!
+final class ViewModelTextFieldChangeActionSpec: XCTestCase {
+   private var sut: ViewModelTextFieldChangeAction!
    
    override func setUp() {
       super.setUp()
-      sut = TextFieldChangeAction.buildDefault()
+      sut = ViewModelTextFieldChangeAction.buildDefault()
    }
    
    override func tearDown() {

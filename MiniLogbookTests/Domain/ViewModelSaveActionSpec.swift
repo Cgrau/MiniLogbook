@@ -1,8 +1,8 @@
 import XCTest
 @testable import MiniLogbook
 
-final class SaveActionSpec: XCTestCase {
-   private var sut: SaveAction!
+final class ViewModelSaveActionSpec: XCTestCase {
+   private var sut: ViewModelSaveAction!
    private var saveValue: SaveValue!
    private var getAverageValue: GetAverageValue!
    private var saveValueCalled: Bool = false

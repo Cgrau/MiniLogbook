@@ -1,6 +1,6 @@
 import UIKit
 
-final class SaveAction {
+final class ViewModelSaveAction {
    typealias UseCase = (_ text: String, _ viewModel: ScreenViewModel) -> ScreenViewModel
    
    private enum Constants {

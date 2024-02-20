@@ -19,15 +19,15 @@ public class MainViewModel: ObservableObject, MainViewModelable {
    
    private var cancellableBag = Set<AnyCancellable>()
    private var currentOptions = [String]()
-   private let getLaunchData: GetLaunchData.UseCase
-   private let selectedAction: SelectedAction.UseCase
-   private let saveAction: SaveAction.UseCase
-   private let textFieldChangeAction: TextFieldChangeAction.UseCase
+   private let getLaunchData: ViewModelGetLaunchData.UseCase
+   private let selectedAction: ViewModelSelectedAction.UseCase
+   private let saveAction: ViewModelSaveAction.UseCase
+   private let textFieldChangeAction: ViewModelTextFieldChangeAction.UseCase
    
-   required init(getLaunchData: @escaping GetLaunchData.UseCase,
-                 selectedAction: @escaping SelectedAction.UseCase,
-                 saveAction: @escaping SaveAction.UseCase,
-                 textFieldChangeAction: @escaping TextFieldChangeAction.UseCase) {
+   required init(getLaunchData: @escaping ViewModelGetLaunchData.UseCase,
+                 selectedAction: @escaping ViewModelSelectedAction.UseCase,
+                 saveAction: @escaping ViewModelSaveAction.UseCase,
+                 textFieldChangeAction: @escaping ViewModelTextFieldChangeAction.UseCase) {
       self.getLaunchData = getLaunchData
       self.selectedAction = selectedAction
       self.saveAction = saveAction
@@ -35,10 +35,10 @@ public class MainViewModel: ObservableObject, MainViewModelable {
    }
    
    static func buildDefault() -> Self {
-      .init(getLaunchData: GetLaunchData.buildDefault().execute,
-            selectedAction: SelectedAction.buildDefault().execute,
-            saveAction: SaveAction.buildDefault().execute,
-            textFieldChangeAction: TextFieldChangeAction.buildDefault().execute)
+      .init(getLaunchData: ViewModelGetLaunchData.buildDefault().execute,
+            selectedAction: ViewModelSelectedAction.buildDefault().execute,
+            saveAction: ViewModelSaveAction.buildDefault().execute,
+            textFieldChangeAction: ViewModelTextFieldChangeAction.buildDefault().execute)
    }
    
    func transform(input: MainViewModelInput) -> MainViewModelOutput {
