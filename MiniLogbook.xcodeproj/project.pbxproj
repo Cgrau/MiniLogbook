@@ -16,6 +16,8 @@
 		2C67FC9F2B85123A0056C8E9 /* Double+RoundedToPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FC9E2B85123A0056C8E9 /* Double+RoundedToPlaces.swift */; };
 		2C67FCA12B8515C50056C8E9 /* SelectedActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCA02B8515C50056C8E9 /* SelectedActionSpec.swift */; };
 		2C67FCA32B851A8F0056C8E9 /* SaveActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCA22B851A8F0056C8E9 /* SaveActionSpec.swift */; };
+		2C67FCA92B8525270056C8E9 /* ST_ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCA82B8525270056C8E9 /* ST_ListView.swift */; };
+		2C67FCAC2B8526F30056C8E9 /* ST_ValueViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCAB2B8526F30056C8E9 /* ST_ValueViewCell.swift */; };
 		2C94B8A72B8177F50029DFD3 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8A62B8177F50029DFD3 /* MainViewState.swift */; };
 		2C94B8B32B8352830029DFD3 /* SaveValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8B22B8352830029DFD3 /* SaveValue.swift */; };
 		2C94B8BA2B8376E00029DFD3 /* UserDefaultsLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8B92B8376E00029DFD3 /* UserDefaultsLocalStorage.swift */; };
@@ -78,6 +80,8 @@
 		2C67FC9E2B85123A0056C8E9 /* Double+RoundedToPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+RoundedToPlaces.swift"; sourceTree = "<group>"; };
 		2C67FCA02B8515C50056C8E9 /* SelectedActionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedActionSpec.swift; sourceTree = "<group>"; };
 		2C67FCA22B851A8F0056C8E9 /* SaveActionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveActionSpec.swift; sourceTree = "<group>"; };
+		2C67FCA82B8525270056C8E9 /* ST_ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_ListView.swift; sourceTree = "<group>"; };
+		2C67FCAB2B8526F30056C8E9 /* ST_ValueViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_ValueViewCell.swift; sourceTree = "<group>"; };
 		2C94B8A62B8177F50029DFD3 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		2C94B8B22B8352830029DFD3 /* SaveValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveValue.swift; sourceTree = "<group>"; };
 		2C94B8B92B8376E00029DFD3 /* UserDefaultsLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLocalStorage.swift; sourceTree = "<group>"; };
@@ -175,6 +179,23 @@
 				2C67FC9E2B85123A0056C8E9 /* Double+RoundedToPlaces.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2C67FCA72B8525110056C8E9 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2C67FCAA2B8526DB0056C8E9 /* Views */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		2C67FCAA2B8526DB0056C8E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2C67FCA82B8525270056C8E9 /* ST_ListView.swift */,
+				2C67FCAB2B8526F30056C8E9 /* ST_ValueViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2C94B8B52B83762C0029DFD3 /* Data */ = {
@@ -288,6 +309,7 @@
 			children = (
 				2C67FC882B84FFF50056C8E9 /* Generated */,
 				2CF9FA482B80F33A000AA3EB /* Main */,
+				2C67FCA72B8525110056C8E9 /* List */,
 				2C67FC8C2B8501000056C8E9 /* Domain */,
 			);
 			path = MiniLogbookTests;
@@ -631,9 +653,11 @@
 				2C67FCA12B8515C50056C8E9 /* SelectedActionSpec.swift in Sources */,
 				2C67FCA32B851A8F0056C8E9 /* SaveActionSpec.swift in Sources */,
 				2CF9FA4B2B80F371000AA3EB /* ST_SelectionView.swift in Sources */,
+				2C67FCAC2B8526F30056C8E9 /* ST_ValueViewCell.swift in Sources */,
 				2C67FC8A2B84FFF60056C8E9 /* AutoMockable.generated.swift in Sources */,
 				2C67FC962B85031B0056C8E9 /* GetSavedDataSpec.swift in Sources */,
 				2C67FC9A2B8508FE0056C8E9 /* GetAverageValueSpec.swift in Sources */,
+				2C67FCA92B8525270056C8E9 /* ST_ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

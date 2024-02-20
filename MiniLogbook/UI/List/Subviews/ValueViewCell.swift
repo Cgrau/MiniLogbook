@@ -14,10 +14,10 @@ final class ValueViewCell: TableViewCell {
    
    override func setupConstraints() {
       titleLabel.snp.makeConstraints { make in
-         make.top.equalToSuperview().offset(Spacing.l)
+         make.top.equalToSuperview().offset(Spacing.s)
          make.leading.equalToSuperview().offset(Spacing.l)
          make.trailing.equalToSuperview().offset(-Spacing.l)
-         make.bottom.equalToSuperview().offset(-Spacing.l)
+         make.bottom.equalToSuperview().offset(-Spacing.s)
       }
    }
 }

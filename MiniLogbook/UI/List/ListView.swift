@@ -53,7 +53,7 @@ final class ListView: View {
          make.top.equalTo(underline.snp.bottom)
          make.leading.equalToSuperview().offset(Spacing.l)
          make.trailing.equalToSuperview().offset(-Spacing.l)
-         make.bottom.equalToSuperview()
+         make.bottom.equalTo(safeAreaLayoutGuide)
       }
    }
 }
