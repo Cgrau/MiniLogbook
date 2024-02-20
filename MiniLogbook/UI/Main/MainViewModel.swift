@@ -53,21 +53,21 @@ public class MainViewModel: ObservableObject, MainViewModelable {
       
       // MARK: - on Option Selected Action
       let selectedAction = input.onOptionTapped.map { [weak self] (text) -> MainViewState in
-         guard let self = self, case .loaded(var viewModel) = self.state else { return .loading }
+         guard let self = self, case .loaded(var viewModel) = self.state else { return .error("this should not happen") }
          viewModel = self.selectedAction(text, viewModel)
          return .loaded(viewModel)
       }.eraseToAnyPublisher()
       
       // MARK: - on Save Action
       let saveAction = input.onSaveTapped.map { [weak self] (text) -> MainViewState in
-         guard let self, let text, case .loaded(var viewModel) = self.state else { return .loading }
+         guard let self, let text, case .loaded(var viewModel) = self.state else { return .error("this should not happen") }
          viewModel = self.saveAction(text, viewModel)
          return .loaded(viewModel)
       }.eraseToAnyPublisher()
       
       // MARK: - on TextField Action
       let textfieldAction = input.onTextFieldTextChanged.map { [weak self] (text) -> MainViewState in
-         guard let self, let text, case .loaded(var viewModel) = self.state else { return .loading }
+         guard let self, let text, case .loaded(var viewModel) = self.state else { return .error("this should not happen") }
          guard text != viewModel.textFieldText else { return .idle }
          viewModel = self.textFieldChangeAction(text, viewModel)
          return .loaded(viewModel)

@@ -21,6 +21,7 @@
 		2C67FCAE2B8529CF0056C8E9 /* ListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCAD2B8529CF0056C8E9 /* ListViewModelSpec.swift */; };
 		2C67FCB02B852BF20056C8E9 /* TextFieldChangeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCAF2B852BF20056C8E9 /* TextFieldChangeAction.swift */; };
 		2C67FCB22B852D9B0056C8E9 /* TextFieldChangeActionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCB12B852D9B0056C8E9 /* TextFieldChangeActionSpec.swift */; };
+		2C67FCB42B852EF40056C8E9 /* MainViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FCB32B852EF40056C8E9 /* MainViewModelSpec.swift */; };
 		2C94B8A72B8177F50029DFD3 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8A62B8177F50029DFD3 /* MainViewState.swift */; };
 		2C94B8B32B8352830029DFD3 /* SaveValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8B22B8352830029DFD3 /* SaveValue.swift */; };
 		2C94B8BA2B8376E00029DFD3 /* UserDefaultsLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94B8B92B8376E00029DFD3 /* UserDefaultsLocalStorage.swift */; };
@@ -88,6 +89,7 @@
 		2C67FCAD2B8529CF0056C8E9 /* ListViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelSpec.swift; sourceTree = "<group>"; };
 		2C67FCAF2B852BF20056C8E9 /* TextFieldChangeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldChangeAction.swift; sourceTree = "<group>"; };
 		2C67FCB12B852D9B0056C8E9 /* TextFieldChangeActionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldChangeActionSpec.swift; sourceTree = "<group>"; };
+		2C67FCB32B852EF40056C8E9 /* MainViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelSpec.swift; sourceTree = "<group>"; };
 		2C94B8A62B8177F50029DFD3 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		2C94B8B22B8352830029DFD3 /* SaveValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveValue.swift; sourceTree = "<group>"; };
 		2C94B8B92B8376E00029DFD3 /* UserDefaultsLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLocalStorage.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		2CF9FA482B80F33A000AA3EB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2C67FCB32B852EF40056C8E9 /* MainViewModelSpec.swift */,
 				2CF9FA492B80F340000AA3EB /* Views */,
 			);
 			path = Main;
@@ -659,6 +662,7 @@
 				2CF9FA562B812126000AA3EB /* ST_MainView.swift in Sources */,
 				2C67FC982B8503D10056C8E9 /* SaveValueSpec.swift in Sources */,
 				2C67FC9C2B850CD90056C8E9 /* GetLaunchDataSpec.swift in Sources */,
+				2C67FCB42B852EF40056C8E9 /* MainViewModelSpec.swift in Sources */,
 				2C67FC8F2B8501300056C8E9 /* SaveDataSpec.swift in Sources */,
 				2C67FCA12B8515C50056C8E9 /* SelectedActionSpec.swift in Sources */,
 				2C67FCA32B851A8F0056C8E9 /* SaveActionSpec.swift in Sources */,

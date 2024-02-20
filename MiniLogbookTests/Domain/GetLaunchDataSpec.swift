@@ -58,12 +58,10 @@ final class GetLaunchDataSpec: XCTestCase {
          enum Options {
             static let mgDLTitle = SelectedType.mgDL.rawValue
             static let mmolLTitle = SelectedType.mmolL.rawValue
-            static let selectedImage: UIImage = .selected
-            static let unselectedImage: UIImage = .unselected
             static let viewModels: [SelectionViewModel] = [
-               .init(image: Constants.ExpectedValues.Options.selectedImage,
+               .init(image: .selected,
                      type: .mgDL),
-               .init(image: Constants.ExpectedValues.Options.unselectedImage,
+               .init(image: .unselected,
                      type: .mmolL)
             ]
          }
