@@ -14,6 +14,7 @@ final class SaveActionSpec: XCTestCase {
       getAverageValue = nil
       saveValueCalled = false
       getAverageValueCalled = false
+      super.tearDown()
    }
    
    func test_execute_save_value() {

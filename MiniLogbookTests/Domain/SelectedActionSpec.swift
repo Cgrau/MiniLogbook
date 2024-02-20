@@ -6,6 +6,7 @@ final class SelectedActionSpec: XCTestCase {
    
    override func tearDown() {
       sut = nil
+      super.tearDown()
    }
    
    func test_execute_whenSelecting_mmolL_updatesViewModelCorrectly() {

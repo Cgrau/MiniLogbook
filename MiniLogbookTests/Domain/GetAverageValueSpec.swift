@@ -9,6 +9,7 @@ final class GetAverageValueSpec: XCTestCase {
    override func tearDown() {
       sut = nil
       getSavedData = nil
+      super.tearDown()
    }
    
    func test_execute_mgDL_test1() {

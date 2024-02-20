@@ -6,6 +6,7 @@ final class SaveDataSpec: XCTestCase {
    private var repository: LocalStorageMock!
    
    override func setUp() {
+      super.setUp()
       repository = LocalStorageMock()
       sut = SaveData(repository: repository)
    }
@@ -13,6 +14,7 @@ final class SaveDataSpec: XCTestCase {
    override func tearDown() {
       sut = nil
       repository = nil
+      super.tearDown()
    }
    
    func test_execute() {

@@ -8,6 +8,7 @@ final class GetLaunchDataSpec: XCTestCase {
    override func tearDown() {
       sut = nil
       getAverageValue = nil
+      super.tearDown()
    }
    
    func test_execute_value1() {

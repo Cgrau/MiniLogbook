@@ -13,6 +13,7 @@ final class SaveValueSpec: XCTestCase {
       getSavedData = nil
       saveData = nil
       savedValues = []
+      super.tearDown()
    }
    
    func test_execute_mgDL_test1() {

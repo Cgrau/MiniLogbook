@@ -22,19 +22,23 @@ public class MainViewModel: ObservableObject, MainViewModelable {
    private let getLaunchData: GetLaunchData.UseCase
    private let selectedAction: SelectedAction.UseCase
    private let saveAction: SaveAction.UseCase
+   private let textFieldChangeAction: TextFieldChangeAction.UseCase
    
    required init(getLaunchData: @escaping GetLaunchData.UseCase,
                  selectedAction: @escaping SelectedAction.UseCase,
-                 saveAction: @escaping SaveAction.UseCase) {
+                 saveAction: @escaping SaveAction.UseCase,
+                 textFieldChangeAction: @escaping TextFieldChangeAction.UseCase) {
       self.getLaunchData = getLaunchData
       self.selectedAction = selectedAction
       self.saveAction = saveAction
+      self.textFieldChangeAction = textFieldChangeAction
    }
    
    static func buildDefault() -> Self {
       .init(getLaunchData: GetLaunchData.buildDefault().execute,
             selectedAction: SelectedAction.buildDefault().execute,
-            saveAction: SaveAction.buildDefault().execute)
+            saveAction: SaveAction.buildDefault().execute,
+            textFieldChangeAction: TextFieldChangeAction.buildDefault().execute)
    }
    
    func transform(input: MainViewModelInput) -> MainViewModelOutput {
@@ -65,12 +69,7 @@ public class MainViewModel: ObservableObject, MainViewModelable {
       let textfieldAction = input.onTextFieldTextChanged.map { [weak self] (text) -> MainViewState in
          guard let self, let text, case .loaded(var viewModel) = self.state else { return .loading }
          guard text != viewModel.textFieldText else { return .idle }
-         viewModel.textFieldText = text
-         if Double(viewModel.textFieldText.replacingOccurrences(of: ",", with: ".")) != 0 {
-            viewModel.errorText = ""
-         } else {
-            viewModel.errorText = "Number should be greater than 0"
-         }
+         viewModel = self.textFieldChangeAction(text, viewModel)
          return .loaded(viewModel)
       }.eraseToAnyPublisher()
       
